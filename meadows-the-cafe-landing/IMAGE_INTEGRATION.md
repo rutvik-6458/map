@@ -129,3 +129,4 @@ After adding images:
 4. Test on mobile devices
 5. Check image loading performance
 
+

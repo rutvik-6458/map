@@ -154,3 +154,4 @@ This ensures:
 - Gallery uses placeholders - see IMAGE_INTEGRATION.md for setup
 - SEO and JSON-LD are fully configured in `layout.tsx`
 
+

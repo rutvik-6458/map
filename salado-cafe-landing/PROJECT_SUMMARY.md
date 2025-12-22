@@ -187,3 +187,4 @@ The project is ready for development. After installing dependencies and adding i
 - Gallery uses placeholders - replace with actual images
 - All CTAs are functional (Call, Directions, WhatsApp)
 
+

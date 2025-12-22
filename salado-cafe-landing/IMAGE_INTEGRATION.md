@@ -77,3 +77,4 @@ To add a background image to the Hero section:
 - Use Next.js Image component for better optimization (optional)
 - Ensure images are properly optimized for web to maintain fast load times
 
+

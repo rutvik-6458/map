@@ -116,3 +116,4 @@ All content is sourced from the provided JSON data:
 - All sections are mobile-responsive
 - SEO optimized with proper meta tags and schema markup
 
+

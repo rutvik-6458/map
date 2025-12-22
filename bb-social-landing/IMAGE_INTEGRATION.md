@@ -98,3 +98,4 @@ The Location component is ready for Google Maps integration:
 - Consider lazy loading for gallery images
 - Test on mobile devices to ensure images load properly
 
+

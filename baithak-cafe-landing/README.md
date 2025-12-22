@@ -92,3 +92,4 @@ npm start
 - If `google_maps_link` is empty, the Location section shows a placeholder with address
 - All CTAs (Call, Directions, WhatsApp) are functional and use the data from `data.ts`
 
+
