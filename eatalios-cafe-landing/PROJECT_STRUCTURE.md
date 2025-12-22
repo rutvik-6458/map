@@ -64,3 +64,4 @@ eatalios-cafe-landing/
 ### SEO
 - `src/app/layout.tsx` - Update metadata, JSON-LD with complete business info
 
+

@@ -108,3 +108,4 @@ npm start
 - All contact information (phone, WhatsApp) is conditionally rendered - buttons will only show when numbers are provided.
 - The design uses a red-orange gradient theme to reflect Italian cafe aesthetics.
 
+

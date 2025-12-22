@@ -99,3 +99,4 @@ The Location component is ready for Google Maps integration:
 - Test on mobile devices to ensure images load properly
 
 
+

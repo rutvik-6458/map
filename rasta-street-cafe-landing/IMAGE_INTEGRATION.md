@@ -89,3 +89,4 @@ If you want to add a background image to the Hero section:
 The current implementation uses gradient backgrounds with emoji icons as placeholders. This ensures the layout is preserved even without images, making it easy to swap in real images later.
 
 
+

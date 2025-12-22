@@ -50,3 +50,4 @@ Add the following images to `public/gallery/`:
 - Use WebP or AVIF format for better performance
 - Maintain aspect ratios for consistent gallery layout
 
+

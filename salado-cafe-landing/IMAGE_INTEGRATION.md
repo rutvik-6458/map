@@ -78,3 +78,4 @@ To add a background image to the Hero section:
 - Ensure images are properly optimized for web to maintain fast load times
 
 
+
