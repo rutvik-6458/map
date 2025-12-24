@@ -121,3 +121,4 @@ npm start
 - All images use Next.js Image component for optimization
 - The design is fully responsive and mobile-first
 
+

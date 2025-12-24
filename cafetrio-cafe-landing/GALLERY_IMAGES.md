@@ -87,3 +87,4 @@ import cafeInterior from "@/assets/cafe-interior.jpg";
 
 The gallery currently shows placeholder divs with icons. Replace them with actual images following the instructions above.
 
+

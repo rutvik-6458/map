@@ -122,3 +122,4 @@ npm start
 - All components are typed with TypeScript
 - Follows Next.js 16 App Router conventions
 
+

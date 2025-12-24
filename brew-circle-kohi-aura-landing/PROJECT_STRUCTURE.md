@@ -122,3 +122,4 @@ The project uses a warm amber/coffee color scheme:
 - **Client Components**: Header, Hero, Location (use client-side features like scroll)
 - **Server Components**: Footer, Features, Menu, FAQ, SocialProof, Gallery (default)
 
+

@@ -41,3 +41,4 @@ Add the following images to the `public/` folder:
 
 The Gallery component is already set up to use Next.js Image optimization - just uncomment the Image components and the images will automatically be optimized.
 
+

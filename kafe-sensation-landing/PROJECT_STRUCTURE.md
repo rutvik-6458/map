@@ -216,3 +216,4 @@ The site uses a warm coffee brown theme:
 ✅ Mobile-first responsive design
 ✅ Optimized font loading (next/font)
 
+

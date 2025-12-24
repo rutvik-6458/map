@@ -62,3 +62,4 @@ Simply update the `src` URLs in the `galleryImages` array in `src/components/Gal
 - Images are lazy-loaded for better performance
 - Hover effects and transitions are already implemented
 
+

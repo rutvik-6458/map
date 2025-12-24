@@ -51,3 +51,4 @@ Add the following images to `public/gallery/`:
 - Maintain aspect ratios for consistent gallery layout
 
 
+

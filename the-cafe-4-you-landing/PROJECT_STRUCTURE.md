@@ -109,3 +109,4 @@ src/app/layout.tsx (wraps with SEO/metadata)
 5. **Customize colors** - Edit CSS variables in `src/app/globals.css`
 6. **Update domain URLs** - Replace placeholder URLs in `src/app/layout.tsx`
 
+

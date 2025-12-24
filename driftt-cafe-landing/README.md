@@ -102,3 +102,4 @@ npm start
 - Gallery section uses placeholders - replace with actual images
 - All content is based on the provided JSON data structure
 
+

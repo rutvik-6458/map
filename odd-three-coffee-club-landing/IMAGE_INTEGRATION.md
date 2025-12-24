@@ -57,3 +57,4 @@ Based on the photo shotlist, you should have:
 
 Don't forget to update the image URL in the JSON-LD schema in `src/app/layout.tsx` (line 48) with your actual hero image URL.
 
+

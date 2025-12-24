@@ -70,3 +70,4 @@ The menu section in `src/components/Menu.tsx` uses placeholder images. Update th
   - Hero: 1920x1080px minimum
   - Menu items: 600x400px minimum
 
+

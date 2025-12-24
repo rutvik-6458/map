@@ -105,3 +105,4 @@ npm start
 - WhatsApp button uses phone number from contact info
 - All sections are fully responsive and mobile-optimized
 
+

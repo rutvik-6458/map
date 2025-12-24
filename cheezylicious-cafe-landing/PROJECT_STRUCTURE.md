@@ -103,3 +103,4 @@ See `GALLERY_IMAGES.md` for detailed instructions.
 - Sticky header adapts on scroll
 - Mobile menu for navigation
 
+

@@ -106,3 +106,4 @@ Recommended gallery images:
 - Google Maps link falls back to search query if not provided
 - All components are mobile-responsive and optimized for performance
 
+

@@ -141,3 +141,4 @@ All components import:
 5. Customize colors in globals.css if needed
 6. Deploy to hosting platform
 
+

@@ -41,3 +41,4 @@ const galleryImages = [
 - **Aspect Ratio**: 4:3 recommended
 - **Resolution**: 1200x900px or higher
 
+

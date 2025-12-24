@@ -50,3 +50,4 @@ To complete the gallery section, add the following images to the `public/gallery
 - Ensure images are properly cropped and centered
 - Test images on both desktop and mobile devices
 
+

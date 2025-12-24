@@ -79,3 +79,4 @@ Based on the provided JSON data, the following shots are recommended:
 - Error handling is built-in - if an image fails to load, a placeholder will be shown
 - The hero image uses priority loading for better performance
 
+

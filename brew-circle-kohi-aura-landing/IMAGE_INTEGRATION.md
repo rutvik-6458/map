@@ -119,3 +119,4 @@ import heroImage from "@/assets/hero.jpg";
 - Always include descriptive alt text for accessibility
 - Consider image file sizes for performance (aim for <500KB per image when possible)
 
+

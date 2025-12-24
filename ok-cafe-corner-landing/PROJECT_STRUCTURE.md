@@ -93,3 +93,4 @@ All content comes from `src/data.ts` - this is the single source of truth. Updat
 - All components are TypeScript with proper typing
 - Follows user's code quality rules (DRY, modular, <50 lines per function where possible)
 
+
