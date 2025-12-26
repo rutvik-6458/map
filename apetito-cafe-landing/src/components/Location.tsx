@@ -19,25 +19,25 @@ const Location = () => {
     };
 
     return (
-        <section id="location" className="py-20 px-4 bg-gradient-to-b from-white to-amber-50">
+        <section id="location" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-amber-50">
             <div className="container mx-auto max-w-6xl">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                    <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
                         📍 Location
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
                         Visit Us Today
                     </h2>
-                    <p className="text-xl text-gray-600">
+                    <p className="text-base sm:text-lg lg:text-xl text-gray-600 px-2">
                         Located in the heart of Vesu, Surat
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     {/* Map */}
-                    <Card className="overflow-hidden border-2 border-amber-200 shadow-xl">
-                        <div className="relative h-96 lg:h-full min-h-[400px] bg-gradient-to-br from-amber-100 to-orange-100">
+                    <Card className="overflow-hidden border-2 border-amber-200 shadow-xl order-2 lg:order-1">
+                        <div className="relative h-64 sm:h-80 md:h-96 lg:h-full min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-amber-100 to-orange-100">
                             <iframe
                                 src={mapEmbedUrl}
                                 width="100%"
@@ -52,31 +52,31 @@ const Location = () => {
                     </Card>
 
                     {/* Contact Info */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
                         {/* Address Card */}
-                        <Card className="p-6 bg-white border-2 border-gray-100 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                                    <MapPin className="w-6 h-6 text-white" />
+                        <Card className="p-4 sm:p-6 bg-white border-2 border-gray-100 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-start gap-3 sm:gap-4">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                 </div>
-                                <div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">Address</h3>
-                                    <p className="text-gray-700 leading-relaxed">{address}</p>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">Address</h3>
+                                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed break-words">{address}</p>
                                 </div>
                             </div>
                         </Card>
 
                         {/* Phone Card */}
-                        <Card className="p-6 bg-white border-2 border-gray-100 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                                    <Phone className="w-6 h-6 text-white" />
+                        <Card className="p-4 sm:p-6 bg-white border-2 border-gray-100 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-start gap-3 sm:gap-4">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">Phone</h3>
+                                    <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">Phone</h3>
                                     <a
                                         href={`tel:${phone}`}
-                                        className="text-gray-700 hover:text-amber-600 transition-colors"
+                                        className="text-sm sm:text-base text-gray-700 hover:text-amber-600 transition-colors break-all"
                                     >
                                         {phone}
                                     </a>
@@ -85,14 +85,14 @@ const Location = () => {
                         </Card>
 
                         {/* Hours Card */}
-                        <Card className="p-6 bg-white border-2 border-gray-100 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                                    <Clock className="w-6 h-6 text-white" />
+                        <Card className="p-4 sm:p-6 bg-white border-2 border-gray-100 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-start gap-3 sm:gap-4">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                    <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">Hours</h3>
-                                    <p className="text-gray-700">{hours}</p>
+                                    <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">Hours</h3>
+                                    <p className="text-sm sm:text-base text-gray-700">{hours}</p>
                                 </div>
                             </div>
                         </Card>
@@ -100,29 +100,30 @@ const Location = () => {
                         {/* Directions Button */}
                         <Button
                             size="lg"
-                            className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                            className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white py-5 sm:py-6 text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                             onClick={openGoogleMaps}
                         >
-                            <Navigation className="w-5 h-5 mr-2" />
-                            Get Directions on Google Maps
+                            <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                            <span className="hidden sm:inline">Get Directions on Google Maps</span>
+                            <span className="sm:hidden">Get Directions</span>
                         </Button>
 
                         {/* Additional Info */}
-                        <Card className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200">
-                            <h3 className="text-lg font-bold text-gray-900 mb-3">
+                        <Card className="p-4 sm:p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200">
+                            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3">
                                 Easy to Find
                             </h3>
-                            <ul className="space-y-2 text-gray-700">
+                            <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-base text-gray-700">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-amber-600 mt-1">•</span>
+                                    <span className="text-amber-600 mt-1 flex-shrink-0">•</span>
                                     <span>Located at DMD Pacific, Vesu Canal Road</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-amber-600 mt-1">•</span>
+                                    <span className="text-amber-600 mt-1 flex-shrink-0">•</span>
                                     <span>Opposite L. P. Savani School</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-amber-600 mt-1">•</span>
+                                    <span className="text-amber-600 mt-1 flex-shrink-0">•</span>
                                     <span>Drive-through available for quick pickup</span>
                                 </li>
                             </ul>

@@ -60,24 +60,33 @@ const Header = () => {
                     : "bg-transparent"
                 }`}
         >
-            <div className="container mx-auto px-4 py-4">
+            <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <button
                         onClick={() => scrollToSection("hero")}
-                        className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+                        className={`text-xl sm:text-2xl font-bold hover:scale-105 transition-transform ${
+                            isScrolled
+                                ? "bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent"
+                                : "text-orange-500 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+                        }`}
                     >
                         Apetito
                     </button>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    <nav className="hidden md:flex items-center gap-6 lg:gap-8">
                         {navItems.map((item) => (
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className={`text-sm font-medium transition-all duration-200 hover:text-amber-600 relative ${activeSection === item.id ? "text-amber-600" : "text-gray-700"
-                                    }`}
+                                className={`text-xs lg:text-sm font-medium transition-all duration-200 relative ${
+                                    activeSection === item.id
+                                        ? "text-amber-600"
+                                        : isScrolled
+                                        ? "text-gray-700 hover:text-amber-600"
+                                        : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] hover:text-amber-300"
+                                }`}
                             >
                                 {item.label}
                                 {activeSection === item.id && (
@@ -88,77 +97,90 @@ const Header = () => {
                     </nav>
 
                     {/* CTA Buttons */}
-                    <div className="hidden md:flex items-center gap-3">
+                    <div className="hidden md:flex items-center gap-2 lg:gap-3">
                         <Button
                             variant="outline"
                             size="sm"
-                            className="border-amber-600 text-amber-600 hover:bg-amber-50"
+                            className="border-amber-600 text-amber-600 hover:bg-amber-50 text-xs lg:text-sm px-3 lg:px-4"
                             onClick={() => window.open("tel:+917802001555", "_self")}
                         >
-                            <Phone className="w-4 h-4 mr-2" />
-                            Call Now
+                            <Phone className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2" />
+                            <span className="hidden lg:inline">Call Now</span>
+                            <span className="lg:hidden">Call</span>
                         </Button>
                         <Button
                             size="sm"
-                            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700"
+                            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-xs lg:text-sm px-3 lg:px-4"
                             onClick={() => scrollToSection("location")}
                         >
-                            <Navigation className="w-4 h-4 mr-2" />
-                            Directions
+                            <Navigation className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2" />
+                            <span className="hidden lg:inline">Directions</span>
+                            <span className="lg:hidden">Map</span>
                         </Button>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                        className={`md:hidden p-2 rounded-lg transition-colors ${
+                            isScrolled
+                                ? "hover:bg-gray-100"
+                                : "hover:bg-white/20"
+                        }`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <X className="w-6 h-6 text-gray-700" />
+                            <X className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"}`} />
                         ) : (
-                            <Menu className="w-6 h-6 text-gray-700" />
+                            <Menu className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"}`} />
                         )}
                     </button>
                 </div>
 
                 {/* Mobile Menu */}
-                {isMobileMenuOpen && (
-                    <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
-                        <nav className="flex flex-col gap-3">
+                <div
+                    className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                        isMobileMenuOpen
+                            ? "max-h-[600px] opacity-100 mt-4"
+                            : "max-h-0 opacity-0 mt-0"
+                    }`}
+                >
+                    <div className="pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
+                        <nav className="flex flex-col gap-2 px-2">
                             {navItems.map((item) => (
                                 <button
                                     key={item.id}
                                     onClick={() => scrollToSection(item.id)}
-                                    className={`text-left px-4 py-2 rounded-lg transition-all ${activeSection === item.id
+                                    className={`text-left px-4 py-3 rounded-lg transition-all text-base ${
+                                        activeSection === item.id
                                             ? "bg-amber-100 text-amber-600 font-medium"
                                             : "text-gray-700 hover:bg-gray-100"
-                                        }`}
+                                    }`}
                                 >
                                     {item.label}
                                 </button>
                             ))}
-                            <div className="flex flex-col gap-2 mt-2 px-4">
+                            <div className="flex flex-col gap-2 mt-2 px-2">
                                 <Button
                                     variant="outline"
                                     size="sm"
-                                    className="w-full border-amber-600 text-amber-600 hover:bg-amber-50"
+                                    className="w-full border-amber-600 text-amber-600 hover:bg-amber-50 py-6 text-base"
                                     onClick={() => window.open("tel:+917802001555", "_self")}
                                 >
-                                    <Phone className="w-4 h-4 mr-2" />
+                                    <Phone className="w-5 h-5 mr-2" />
                                     Call Now
                                 </Button>
                                 <Button
                                     size="sm"
-                                    className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700"
+                                    className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 py-6 text-base"
                                     onClick={() => scrollToSection("location")}
                                 >
-                                    <Navigation className="w-4 h-4 mr-2" />
+                                    <Navigation className="w-5 h-5 mr-2" />
                                     Get Directions
                                 </Button>
                             </div>
                         </nav>
                     </div>
-                )}
+                </div>
             </div>
         </header>
     );
