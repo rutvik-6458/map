@@ -1,0 +1,87 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { Star, Quote } from "lucide-react";
+import { cafeData } from "@/data";
+
+export default function Trust() {
+    const rating = parseFloat(cafeData.social_proof.rating);
+    const reviewCount = cafeData.social_proof.review_count;
+    const testimonials = cafeData.social_proof.testimonial_quotes;
+
+    const reviews = testimonials.slice(0, 3).map((quote, idx) => ({
+        text: quote,
+        author: `Verified Customer ${idx + 1}`,
+        initial: quote.charAt(0).toUpperCase(),
+    }));
+
+    return (
+        <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Community Trust</h2>
+                        <div className="flex flex-col items-center justify-center gap-4">
+                            <div className="flex items-center gap-2">
+                                <div className="flex text-orange-500">
+                                    {[1, 2, 3, 4, 5].map(i => (
+                                        <Star
+                                            key={i}
+                                            size={28}
+                                            className={i <= rating ? "fill-current" : "fill-gray-300"}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="text-lg font-semibold text-gray-700">
+                                <span className="text-3xl text-gray-900 mr-2">{rating}</span>
+                                Rating based on {reviewCount} Google Reviews
+                            </div>
+                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-4">
+                                {cafeData.social_proof.top_review_themes.join(", ")}
+                            </p>
+                        </div>
+                    </motion.div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8">
+                    {reviews.map((review, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1, duration: 0.6 }}
+                            className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-orange-100/50 transition-all duration-500"
+                        >
+                            <div className="mb-8 p-3 bg-orange-50 w-fit rounded-2xl group-hover:bg-orange-600 group-hover:text-white transition-colors duration-500">
+                                <Quote size={24} />
+                            </div>
+
+                            <p className="text-lg text-gray-700 font-medium leading-[1.6] italic mb-10 flex-grow">
+                                "{review.text}"
+                            </p>
+
+                            <div className="flex items-center gap-4 pt-6 border-t border-gray-50">
+                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center text-white font-bold shadow-lg shadow-orange-200">
+                                    {review.initial}
+                                </div>
+                                <div>
+                                    <p className="font-bold text-gray-900">{review.author}</p>
+                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Google Review</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
