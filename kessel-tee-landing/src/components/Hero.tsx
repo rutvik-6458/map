@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, MapPin, Users } from "lucide-react";
+import { ArrowRight, Star, MapPin, Users, MessageCircle } from "lucide-react";
 import Image from "next/image";
-import heroImage from "@/assets/Cafe Nine Forty Five.jpg";
+import heroImage from "@/assets/kessel tree .jpg";
 import { cafeData } from "@/data";
 
 export default function Hero() {
@@ -12,19 +12,24 @@ export default function Hero() {
     const rating = cafeData.social_proof.rating;
     const reviewCount = cafeData.social_proof.review_count;
     const googleMapsLink = cafeData.contact.google_maps_link || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cafeData.contact.address)}`;
+    const phoneNumber = cafeData.contact.phone;
+    const whatsappNumber = phoneNumber
+        ? `91${phoneNumber.replace(/\s+/g, "").replace(/^0/, "")}`
+        : null;
+    const whatsappLink = whatsappNumber ? `https://wa.me/${whatsappNumber}` : null;
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <Image
                     src={heroImage}
-                    alt="Cafe Nine Forty Five Exterior"
+                    alt="Kessel Tee - A Must-Visit Cafe for Tea Lovers"
                     fill
                     className="object-cover"
                     priority
                     quality={90}
                 />
-                <div className="absolute inset-0 from-amber-900/80 via-amber-800/70 to-amber-700/80"></div>
+                <div className="absolute inset-0 from-amber-900/80 via-amber-800/70 to-orange-900/80"></div>
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
             </div>
 
@@ -43,7 +48,7 @@ export default function Hero() {
                         {headline.includes("–") ? (
                             <>
                                 {headline.split("–")[0].trim()}{" "}
-                                <span className="text-amber-400">{headline.split("–")[1]?.trim()}</span>
+                                <span className="text-orange-400">{headline.split("–")[1]?.trim()}</span>
                             </>
                         ) : (
                             headline
@@ -63,6 +68,15 @@ export default function Hero() {
                             </button>
                         </a>
 
+                        {whatsappLink && (
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                <button className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center gap-3 transform hover:scale-105 active:scale-95">
+                                    <MessageCircle size={24} />
+                                    WhatsApp Us
+                                </button>
+                            </a>
+                        )}
+
                         <a href="#location">
                             <button className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 transform hover:scale-105 active:scale-95">
                                 <Users size={24} />
@@ -74,21 +88,19 @@ export default function Hero() {
                     <div className="mt-20 flex flex-wrap justify-center gap-10 items-center opacity-80">
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Evening Cafe</span>
+                            <span className="font-bold text-sm uppercase tracking-widest">Wide Tea Variety</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-white/70">
+                            <div className="w-2 h-2 rounded-full bg-orange-400"></div>
+                            <span className="font-bold text-sm uppercase tracking-widest">Late Night Open</span>
                         </div>
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Group Hangouts</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-white/70">
-                            <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Sports Friendly</span>
+                            <span className="font-bold text-sm uppercase tracking-widest">Tea & Snacks</span>
                         </div>
                     </div>
                 </motion.div>
             </div>
-
-
         </section>
     );
 }
