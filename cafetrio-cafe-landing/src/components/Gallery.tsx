@@ -19,13 +19,13 @@ export default function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-white">
+    <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
             Gallery
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
             Take a look at our cozy ambience and delicious food
           </p>
         </div>
