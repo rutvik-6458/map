@@ -27,29 +27,29 @@ export function Gallery() {
   const getDirectionsUrl = googleMapsLink || `https://www.google.com/maps?q=${encodeURIComponent(address)}`;
 
   return (
-    <section id="gallery" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+    <section id="gallery" className="py-16 sm:py-20 bg-white w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-3 sm:mb-4">
             Gallery
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             A glimpse into the Cheezylicious Cafe experience
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {galleryImages.map((image, index) => {
             const isLastImage = index === galleryImages.length - 1;
             return (
               <div
                 key={index}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-yellow-200 group hover:shadow-xl transition-all"
+                className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden border border-yellow-200 group hover:shadow-xl transition-all"
               >
                 {/* Placeholder background - shows if image fails to load */}
                 {imageErrors[index] && (
                   <div className={`absolute inset-0 ${image.placeholder} flex items-center justify-center`}>
-                    <span className="text-yellow-600/50 font-semibold text-sm uppercase tracking-wider text-center px-4">
+                    <span className="text-yellow-600/50 font-semibold text-xs sm:text-sm uppercase tracking-wider text-center px-4">
                       {image.alt}
                     </span>
                   </div>
@@ -66,8 +66,8 @@ export function Gallery() {
                     />
                   </div>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 z-10">
-                  <p className="text-white font-semibold text-sm mb-2">{image.alt}</p>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 sm:p-4 z-10">
+                  <p className="text-white font-semibold text-xs sm:text-sm mb-1 sm:mb-2 line-clamp-2">{image.alt}</p>
                 </div>
               </div>
             );

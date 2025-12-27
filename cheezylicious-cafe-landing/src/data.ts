@@ -12,7 +12,7 @@ export const businessData = {
   "contact": {
     "address": "Aagam Square Complex, G10/11, Vesu Canal Rd, near Dream Heritage, Vesu, Surat, Gujarat 395007",
     "phone": "074059 55996",
-    "google_maps_link": "",
+    "google_maps_link": "https://maps.app.goo.gl/g42JrENRiDNZa2YUA",
     "hours": "Open daily, closes at 11:30 pm"
   },
   "positioning": {
