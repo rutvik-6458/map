@@ -11,14 +11,14 @@ export default function FAQ() {
     const [openIdx, setOpenIdx] = useState<number | null>(0);
 
     return (
-        <section className="py-24 bg-gray-50/30" id="faq">
-            <div className="max-w-4xl mx-auto px-4">
-                <div className="text-center mb-16">
-                    <div className="inline-flex p-3 bg-amber-100 text-amber-600 rounded-2xl mb-6">
-                        <HelpCircle size={28} />
+        <section className="py-16 sm:py-20 md:py-24 bg-gray-50/30" id="faq">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-4">
+                <div className="text-center mb-12 sm:mb-16">
+                    <div className="inline-flex p-2 sm:p-3 bg-amber-100 text-amber-600 rounded-xl sm:rounded-2xl mb-4 sm:mb-6">
+                        <HelpCircle size={24} className="sm:w-7 sm:h-7" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Common Questions</h2>
-                    <p className="text-gray-500 font-medium">Everything you need to know about {cafeData.brand.business_name}</p>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight px-4">Common Questions</h2>
+                    <p className="text-gray-500 text-sm sm:text-base font-medium px-4">Everything you need to know about {cafeData.brand.business_name}</p>
                 </div>
 
                 <div className="space-y-4">
@@ -32,19 +32,19 @@ export default function FAQ() {
                         >
                             <button
                                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                                className="w-full text-left p-8 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors group"
+                                className="w-full text-left p-4 sm:p-6 md:p-8 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors group"
                             >
                                 <span className={cn(
-                                    "text-xl font-bold transition-colors",
+                                    "text-base sm:text-lg md:text-xl font-bold transition-colors pr-4",
                                     openIdx === idx ? "text-amber-600" : "text-gray-800 group-hover:text-amber-600"
                                 )}>
                                     {faq.q}
                                 </span>
                                 <div className={cn(
-                                    "p-2 rounded-xl transition-all",
+                                    "p-2 rounded-xl transition-all flex-shrink-0",
                                     openIdx === idx ? "bg-amber-600 text-white rotate-180" : "bg-gray-100 text-gray-500"
                                 )}>
-                                    <ChevronDown size={20} />
+                                    <ChevronDown size={18} className="sm:w-5 sm:h-5" />
                                 </div>
                             </button>
                             <AnimatePresence>
@@ -55,8 +55,8 @@ export default function FAQ() {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
-                                        <div className="px-8 pb-8 text-gray-600 text-lg leading-relaxed font-medium">
-                                            <div className="p-6 bg-amber-50/50 rounded-2xl border border-amber-50">
+                                        <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
+                                            <div className="p-4 sm:p-6 bg-amber-50/50 rounded-xl sm:rounded-2xl border border-amber-50">
                                                 {faq.a}
                                             </div>
                                         </div>
