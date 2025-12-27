@@ -24,18 +24,18 @@ const Location = () => {
     : getGoogleMapsEmbedUrl(cafeData.contact.address);
 
   return (
-    <section id="location" className="py-20 px-4 bg-gradient-to-b from-white to-stone-50">
+    <section id="location" className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-white to-stone-50">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-900 mb-3 sm:mb-4 px-2">
             Visit Us
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-base sm:text-lg text-stone-600 px-4">
             We&apos;re located in the heart of {cafeData.brand.city_area}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-xl shadow-md border border-stone-100">
               <div className="flex items-start gap-4 mb-4">
@@ -110,7 +110,7 @@ const Location = () => {
           </div>
 
           <div className="bg-white rounded-xl shadow-md border border-stone-100 overflow-hidden">
-            <div className="aspect-square bg-stone-200 relative">
+            <div className="aspect-square lg:aspect-[4/3] bg-stone-200 relative min-h-[300px]">
               <iframe
                 src={mapEmbedUrl}
                 width="100%"

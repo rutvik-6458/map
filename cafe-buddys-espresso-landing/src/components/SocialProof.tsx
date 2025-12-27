@@ -5,10 +5,10 @@ const SocialProof = () => {
   return (
     <section
       id="social-proof"
-      className="py-16 px-4 bg-white border-y border-stone-100"
+      className="py-12 sm:py-16 px-4 bg-white border-y border-stone-100"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-16">
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
               <Star className="w-8 h-8 fill-amber-400 text-amber-400" />

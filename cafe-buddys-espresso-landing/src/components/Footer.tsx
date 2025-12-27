@@ -11,9 +11,9 @@ const Footer = () => {
   const hasPhone = phone.length > 0;
 
   return (
-    <footer className="bg-amber-950 text-stone-300 py-12 px-4">
+    <footer className="bg-amber-950 text-stone-300 py-8 sm:py-12 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">
               {cafeData.brand.business_name}
