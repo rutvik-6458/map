@@ -14,18 +14,18 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className="py-20 px-4 bg-white">
+    <section id="menu" className="py-12 sm:py-16 lg:py-20 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-900 mb-3 sm:mb-4 px-2">
             Our Signature Items
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-base sm:text-lg text-stone-600 px-4">
             Discover our most loved dishes and specialties
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {cafeData.positioning.signature_items_or_services.map(
             (item, index) => (
               <Card
@@ -52,16 +52,16 @@ const Menu = () => {
           )}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-block bg-amber-50 border border-amber-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-amber-900 mb-2">
+        <div className="mt-8 sm:mt-12 text-center px-4">
+          <div className="inline-block bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-6 w-full max-w-4xl">
+            <h3 className="text-lg sm:text-xl font-semibold text-amber-900 mb-3 sm:mb-4">
               Unique Selling Points
             </h3>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {cafeData.positioning.unique_selling_points.map((usp, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-white text-amber-800 rounded-full text-sm font-medium shadow-sm"
+                  className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-amber-800 rounded-full text-xs sm:text-sm font-medium shadow-sm"
                 >
                   {usp}
                 </span>

@@ -54,40 +54,53 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+          : "bg-black/20 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-2xl font-bold bg-gradient-to-r from-amber-800 to-amber-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+            className={`text-xl sm:text-2xl font-bold hover:scale-105 transition-transform ${
+              isScrolled
+                ? "bg-gradient-to-r from-amber-800 to-amber-600 bg-clip-text text-transparent"
+                : "text-white drop-shadow-lg"
+            }`}
           >
             {cafeData.brand.business_name}
           </button>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium transition-all duration-200 hover:text-amber-700 text-gray-700"
+                className={`text-sm font-medium transition-all duration-200 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-amber-700"
+                    : "text-white hover:text-amber-300 drop-shadow-md"
+                }`}
               >
                 {item.label}
               </button>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2 lg:gap-3">
             {hasPhone && (
               <Button
                 variant="outline"
                 size="sm"
-                className="border-amber-700 text-amber-700 hover:bg-amber-50"
+                className={`${
+                  isScrolled
+                    ? "border-amber-700 text-amber-700 hover:bg-amber-50"
+                    : "border-white/80 text-white hover:bg-white/20 backdrop-blur-sm"
+                }`}
                 onClick={() => window.open(`tel:${phone}`, "_self")}
               >
                 <Phone className="w-4 h-4 mr-2" />
-                Call Now
+                <span className="hidden lg:inline">Call Now</span>
+                <span className="lg:hidden">Call</span>
               </Button>
             )}
             {hasGoogleMaps ? (
@@ -97,7 +110,8 @@ const Header = () => {
                 onClick={() => window.open(cafeData.contact.google_maps_link, "_blank")}
               >
                 <Navigation className="w-4 h-4 mr-2" />
-                Directions
+                <span className="hidden lg:inline">Directions</span>
+                <span className="lg:hidden">Map</span>
               </Button>
             ) : (
               <Button
@@ -106,7 +120,8 @@ const Header = () => {
                 onClick={() => scrollToSection("location")}
               >
                 <Navigation className="w-4 h-4 mr-2" />
-                Directions
+                <span className="hidden lg:inline">Directions</span>
+                <span className="lg:hidden">Map</span>
               </Button>
             )}
             {hasWhatsApp && (
@@ -121,31 +136,44 @@ const Header = () => {
                 }
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
+                <span className="hidden lg:inline">WhatsApp</span>
+                <span className="lg:hidden">WA</span>
               </Button>
             )}
           </div>
 
           <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? "hover:bg-gray-100"
+                : "hover:bg-white/20 backdrop-blur-sm"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`} />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`} />
             )}
           </button>
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
+          <div className={`md:hidden mt-4 pb-4 border-t pt-4 rounded-lg shadow-lg ${
+            isScrolled
+              ? "border-gray-200 bg-white/95 backdrop-blur-md"
+              : "border-white/20 bg-black/40 backdrop-blur-md"
+          }`}>
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left px-4 py-2 rounded-lg transition-all text-gray-700 hover:bg-amber-100"
+                  className={`text-left px-4 py-2 rounded-lg transition-all ${
+                    isScrolled
+                      ? "text-gray-700 hover:bg-amber-100"
+                      : "text-white hover:bg-white/20"
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -155,7 +183,11 @@ const Header = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full border-amber-700 text-amber-700 hover:bg-amber-50"
+                    className={`w-full ${
+                      isScrolled
+                        ? "border-amber-700 text-amber-700 hover:bg-amber-50"
+                        : "border-white/80 text-white hover:bg-white/20"
+                    }`}
                     onClick={() => window.open(`tel:${phone}`, "_self")}
                   >
                     <Phone className="w-4 h-4 mr-2" />

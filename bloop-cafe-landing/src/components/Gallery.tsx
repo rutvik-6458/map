@@ -16,18 +16,18 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 px-4 bg-gradient-to-b from-stone-50 to-white">
+    <section id="gallery" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-stone-50 to-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-900 mb-3 sm:mb-4 px-2">
             Gallery
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-base sm:text-lg text-stone-600 px-4">
             A glimpse of our delicious food and cozy atmosphere
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {galleryImages.map((src, index) => (
             <div
               key={index}
