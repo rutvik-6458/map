@@ -12,7 +12,7 @@ export const cafeData = {
   contact: {
     address: "Phoenix Market, opposite Aagam Vivianna, Vesu, Surat, Gujarat 395007",
     phone: "096873 15096",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/mqiJ9kUiZkj8Kfcs8",
     hours: "Opens at 6 pm (evening onwards)",
   },
   positioning: {
