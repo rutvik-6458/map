@@ -51,19 +51,22 @@ export default function Navbar() {
         <nav
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled ? "bg-white/80 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
+                isScrolled ? "bg-white/80 backdrop-blur-md shadow-md py-2 sm:py-3" : "bg-transparent py-3 sm:py-4"
             )}
         >
-            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+            <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
                 <div
-                    className="text-2xl font-bold font-serif cursor-pointer text-primary"
+                    className={cn(
+                        "text-xl sm:text-2xl font-bold font-serif cursor-pointer transition-colors",
+                        isScrolled ? "text-primary" : "text-white"
+                    )}
                     onClick={() => scrollToSection("hero")}
                 >
                     Cafe White Eye
                 </div>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-6">
+                <div className="hidden lg:flex items-center gap-4 xl:gap-6">
                     {navLinks.map((link) => (
                         <button
                             key={link.name}
@@ -72,7 +75,9 @@ export default function Navbar() {
                                 "text-sm font-medium transition-colors hover:text-primary",
                                 activeSection === link.href
                                     ? "text-primary font-bold"
-                                    : "text-muted-foreground"
+                                    : isScrolled
+                                    ? "text-muted-foreground"
+                                    : "text-white/90 hover:text-white"
                             )}
                         >
                             {link.name}
@@ -81,14 +86,27 @@ export default function Navbar() {
                 </div>
 
                 {/* Actions */}
-                <div className="hidden md:flex items-center gap-2">
-                    <Button variant="outline" size="sm" asChild>
+                <div className="hidden lg:flex items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className={cn(
+                            isScrolled
+                                ? "border-zinc-300"
+                                : "border-white/30 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+                        )}
+                    >
                         <a href="https://maps.google.com/?q=Cafe+White+Eye+Vesu+Surat" target="_blank" rel="noopener noreferrer">
                             <MapPin className="w-4 h-4 mr-2" />
                             Directions
                         </a>
                     </Button>
-                    <Button size="sm" asChild>
+                    <Button
+                        size="sm"
+                        asChild
+                        className={isScrolled ? "" : "bg-white/20 hover:bg-white/30 backdrop-blur-sm"}
+                    >
                         <a href="tel:06356353531">
                             <Phone className="w-4 h-4 mr-2" />
                             Call
@@ -98,8 +116,12 @@ export default function Navbar() {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden p-2 text-foreground"
+                    className={cn(
+                        "lg:hidden p-2 transition-colors",
+                        isScrolled ? "text-foreground" : "text-white"
+                    )}
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle menu"
                 >
                     {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
@@ -107,7 +129,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg p-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
+                <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 animate-in slide-in-from-top-2">
                     {navLinks.map((link) => (
                         <button
                             key={link.name}

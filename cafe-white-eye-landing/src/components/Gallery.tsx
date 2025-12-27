@@ -1,11 +1,11 @@
 export default function Gallery() {
     return (
-        <section id="gallery" className="py-20 bg-background">
-            <div className="container mx-auto px-4 text-center mb-12">
-                <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4">Gallery</h2>
-                <p className="text-muted-foreground">A glimpse into our cozy world.</p>
+        <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-background">
+            <div className="container mx-auto px-4 sm:px-6 text-center mb-8 sm:mb-10 md:mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4 px-2">Gallery</h2>
+                <p className="text-muted-foreground text-sm sm:text-base px-2">A glimpse into our cozy world.</p>
             </div>
-            <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="container mx-auto px-4 sm:px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
                 {[
                     "/Gallery.jpg",
                     "/Gallery1.webp",
@@ -16,7 +16,7 @@ export default function Gallery() {
                     "/Gallery7.webp",
                     "/Gallery8.avif"
                 ].map((src, i) => (
-                    <div key={i} className="aspect-square bg-muted rounded-xl relative overflow-hidden group shadow-sm hover:shadow-md transition-all">
+                    <div key={i} className="aspect-square bg-muted rounded-lg sm:rounded-xl relative overflow-hidden group shadow-sm hover:shadow-md transition-all">
                         <img
                             src={src}
                             alt={`Gallery image ${i + 1}`}

@@ -13,24 +13,24 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="py-20 bg-zinc-50">
-            <div className="container mx-auto px-4 max-w-3xl">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-12">Frequently Asked Questions</h2>
-                <div className="space-y-4">
+        <section id="faq" className="py-12 sm:py-16 md:py-20 bg-zinc-50">
+            <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-center mb-8 sm:mb-10 md:mb-12 px-2">Frequently Asked Questions</h2>
+                <div className="space-y-3 sm:space-y-4">
                     {faqs.map((faq, i) => (
                         <div key={i} className="bg-white rounded-lg border border-zinc-200 overflow-hidden shadow-sm">
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full flex items-center justify-between p-5 text-left font-medium text-lg hover:bg-zinc-50 transition-colors"
+                                className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-medium text-base sm:text-lg hover:bg-zinc-50 transition-colors gap-4"
                                 aria-expanded={openIndex === i}
                             >
-                                {faq.q}
-                                {openIndex === i ? <Minus className="w-5 h-5 text-primary" /> : <Plus className="w-5 h-5 text-zinc-400" />}
+                                <span className="flex-1 pr-2">{faq.q}</span>
+                                {openIndex === i ? <Minus className="w-5 h-5 text-primary shrink-0" /> : <Plus className="w-5 h-5 text-zinc-400 shrink-0" />}
                             </button>
                             <div
                                 className={cn(
-                                    "px-5 text-muted-foreground overflow-hidden transition-all duration-300 ease-in-out",
-                                    openIndex === i ? "max-h-40 pb-5 opacity-100" : "max-h-0 opacity-0"
+                                    "px-4 sm:px-5 text-sm sm:text-base text-muted-foreground overflow-hidden transition-all duration-300 ease-in-out",
+                                    openIndex === i ? "max-h-40 pb-4 sm:pb-5 opacity-100" : "max-h-0 opacity-0"
                                 )}
                             >
                                 {faq.a}
