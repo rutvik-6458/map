@@ -33,7 +33,7 @@ const Location = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
               <div className="flex items-start gap-4 mb-4">
