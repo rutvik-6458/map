@@ -85,12 +85,14 @@ const Header = () => {
                     : "bg-transparent"
             }`}
         >
-            <div className="container mx-auto px-4 py-4">
+            <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <button
                         onClick={() => scrollToSection("hero")}
-                        className="text-2xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+                        className={`text-xl md:text-2xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent hover:scale-105 transition-transform ${
+                            !isScrolled ? "drop-shadow-lg" : ""
+                        }`}
                     >
                         Eatalio's Cafe
                     </button>
@@ -102,12 +104,18 @@ const Header = () => {
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
                                 className={`text-sm font-medium transition-all duration-200 hover:text-red-600 relative ${
-                                    activeSection === item.id ? "text-red-600" : "text-gray-700"
+                                    activeSection === item.id
+                                        ? "text-red-600"
+                                        : isScrolled
+                                            ? "text-gray-700"
+                                            : "text-white drop-shadow-lg"
                                 }`}
                             >
                                 {item.label}
                                 {activeSection === item.id && (
-                                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600 rounded-full" />
+                                    <span className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                                        isScrolled ? "bg-red-600" : "bg-white"
+                                    }`} />
                                 )}
                             </button>
                         ))}
@@ -148,20 +156,28 @@ const Header = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                        className={`md:hidden p-2 rounded-lg transition-colors ${
+                            isScrolled
+                                ? "hover:bg-gray-100"
+                                : "hover:bg-white/20"
+                        }`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <X className="w-6 h-6 text-gray-700" />
+                            <X className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white drop-shadow-lg"}`} />
                         ) : (
-                            <Menu className="w-6 h-6 text-gray-700" />
+                            <Menu className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white drop-shadow-lg"}`} />
                         )}
                     </button>
                 </div>
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
+                    <div className={`md:hidden mt-4 pb-4 pt-4 rounded-lg shadow-lg ${
+                        isScrolled
+                            ? "border-t border-gray-200 bg-white/95 backdrop-blur-md"
+                            : "border-t border-white/20 bg-white/95 backdrop-blur-md"
+                    }`}>
                         <nav className="flex flex-col gap-3">
                             {navItems.map((item) => (
                                 <button

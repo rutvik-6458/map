@@ -11,16 +11,16 @@ const SocialProof = () => {
     ];
 
     return (
-        <section id="social-proof" className="py-16 bg-white">
-            <div className="container mx-auto px-4">
+        <section id="social-proof" className="py-12 sm:py-16 bg-white">
+            <div className="container mx-auto px-4 sm:px-6">
                 <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="flex items-center justify-center gap-2 mb-4">
+                    <div className="text-center mb-8 sm:mb-12">
+                        <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
                             <div className="flex items-center">
                                 {[...Array(5)].map((_, i) => (
                                     <Star
                                         key={i}
-                                        className={`w-6 h-6 ${
+                                        className={`w-5 h-5 sm:w-6 sm:h-6 ${
                                             i < Math.floor(parseFloat(rating))
                                                 ? "fill-yellow-400 text-yellow-400"
                                                 : "text-gray-300"
@@ -28,16 +28,16 @@ const SocialProof = () => {
                                     />
                                 ))}
                             </div>
-                            <span className="text-2xl font-bold text-gray-900 ml-2">
+                            <span className="text-xl sm:text-2xl font-bold text-gray-900 ml-2">
                                 {rating}
                             </span>
                         </div>
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-gray-600 text-base sm:text-lg px-2">
                             Rated {rating} by {reviewCount} customers
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {testimonials.map((testimonial, index) => (
                             <Card key={index} className="border-gray-200 hover:shadow-lg transition-shadow">
                                 <CardContent className="pt-6">

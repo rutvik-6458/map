@@ -18,18 +18,18 @@ const Gallery = () => {
     ];
 
     return (
-        <section id="gallery" className="py-16 bg-gradient-to-b from-red-50 to-white">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+        <section id="gallery" className="py-12 sm:py-16 bg-gradient-to-b from-red-50 to-white">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900">
                         Gallery
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
                         A glimpse of our cozy cafe and delicious food
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-6xl mx-auto">
                     {galleryImages.map((image, index) => (
                         <Card key={index} className="overflow-hidden border-gray-200 hover:shadow-xl transition-all group">
                             <div className="relative aspect-square bg-gray-100">
