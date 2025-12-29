@@ -12,7 +12,7 @@ export const cafeData = {
   contact: {
     address: "G-7, Ashtha Complex, near VIP Plaza, VIP Rd, Vesu, Surat, Gujarat 395007",
     phone: "093768 51059",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/CoJ2mFGgf2J2dngu7",
     hours: "Open · Closes 11:00 pm",
   },
   positioning: {

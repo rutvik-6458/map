@@ -16,41 +16,42 @@ export default function Trust() {
     }));
 
     return (
-        <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+        <section className="py-12 sm:py-16 lg:py-24 bg-gray-50/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+                <div className="text-center mb-10 sm:mb-12 lg:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Community Trust</h2>
-                        <div className="flex flex-col items-center justify-center gap-4">
-                            <div className="flex items-center gap-2">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 tracking-tight px-2">Community Trust</h2>
+                        <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
+                            <div className="flex items-center gap-1 sm:gap-2">
                                 <div className="flex text-purple-400">
                                     {[1, 2, 3, 4, 5].map(i => (
                                         <Star
                                             key={i}
-                                            size={28}
-                                            className={i <= rating ? "fill-current" : "fill-gray-300"}
+                                            size={20}
+                                            className="sm:w-6 sm:h-6 lg:w-7 lg:h-7"
+                                            style={{ fill: i <= rating ? "currentColor" : "#d1d5db" }}
                                         />
                                     ))}
                                 </div>
                             </div>
-                            <div className="text-lg font-semibold text-gray-700">
-                                <span className="text-3xl text-gray-900 mr-2">{rating}</span>
+                            <div className="text-sm sm:text-base lg:text-lg font-semibold text-gray-700 px-4">
+                                <span className="text-2xl sm:text-3xl text-gray-900 mr-2">{rating}</span>
                                 Rating based on {reviewCount} Google Reviews
                             </div>
-                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-4">
+                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-2 sm:mt-4 text-sm sm:text-base px-4">
                                 {cafeData.social_proof.top_review_themes.join(", ")}
                             </p>
                         </div>
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                     {reviews.map((review, idx) => (
                         <motion.div
                             key={idx}
@@ -58,23 +59,23 @@ export default function Trust() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
-                            className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-purple-100/50 transition-all duration-500"
+                            className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-[2rem] lg:rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-purple-100/50 transition-all duration-500"
                         >
-                            <div className="mb-8 p-3 bg-purple-50 w-fit rounded-2xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-500">
-                                <Quote size={24} />
+                            <div className="mb-5 sm:mb-6 lg:mb-8 p-2.5 sm:p-3 bg-purple-600 text-white w-fit rounded-xl sm:rounded-2xl group-hover:bg-purple-700 transition-colors duration-500">
+                                <Quote size={18} className="sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                             </div>
 
-                            <p className="text-lg text-gray-700 font-medium leading-[1.6] italic mb-10 flex-grow">
+                            <p className="text-sm sm:text-base lg:text-lg text-gray-700 font-medium leading-[1.6] italic mb-6 sm:mb-8 lg:mb-10 flex-grow">
                                 "{review.text}"
                             </p>
 
-                            <div className="flex items-center gap-4 pt-6 border-t border-gray-50">
-                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold shadow-lg shadow-purple-200">
+                            <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-5 lg:pt-6 border-t border-gray-50">
+                                <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold shadow-lg shadow-purple-200 text-sm sm:text-base">
                                     {review.initial}
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900">{review.author}</p>
-                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Google Review</p>
+                                    <p className="font-bold text-gray-900 text-sm sm:text-base">{review.author}</p>
+                                    <p className="text-[10px] sm:text-xs font-semibold text-gray-400 uppercase tracking-widest">Google Review</p>
                                 </div>
                             </div>
                         </motion.div>

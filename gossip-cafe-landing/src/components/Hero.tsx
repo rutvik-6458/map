@@ -39,12 +39,12 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="inline-flex items-center gap-2 bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30 mb-8 font-bold text-sm tracking-widest uppercase">
-                        <Star size={14} className="fill-purple-300" />
-                        <span>{rating}★ Rating • {reviewCount} Reviews</span>
+                    <div className="inline-flex items-center gap-2 bg-purple-600/20 text-purple-300 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-purple-500/30 mb-6 sm:mb-8 font-bold text-xs sm:text-sm tracking-widest uppercase">
+                        <Star size={12} className="sm:w-[14px] sm:h-[14px] fill-purple-300" />
+                        <span className="whitespace-nowrap">{rating}★ Rating • {reviewCount} Reviews</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-8xl font-black text-white leading-tight mb-8 tracking-tighter">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white leading-tight mb-6 sm:mb-8 tracking-tighter px-2">
                         {headline.includes("–") ? (
                             <>
                                 {headline.split("–")[0].trim()}{" "}
@@ -55,11 +55,11 @@ export default function Hero() {
                         )}
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-medium px-4">
                         {subheadline}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
                             <button className="bg-purple-600 hover:bg-purple-700 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-purple-600/30 flex items-center gap-3 transform hover:scale-105 active:scale-95 group">
                                 <MapPin size={24} />
@@ -83,20 +83,20 @@ export default function Hero() {
                                 Visit Cafe
                             </button>
                         </a>
-                    </div>
+                    </div> */}
 
-                    <div className="mt-20 flex flex-wrap justify-center gap-10 items-center opacity-80">
+                    <div className="mt-12 sm:mt-16 lg:mt-20 flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10 items-center opacity-80 px-4">
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-purple-400"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Privacy Focused</span>
+                            <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">Privacy Focused</span>
                         </div>
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-pink-400"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Parties & Hangouts</span>
+                            <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">Parties & Hangouts</span>
                         </div>
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Drive-Through Available</span>
+                            <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">Drive-Through Available</span>
                         </div>
                     </div>
                 </motion.div>
