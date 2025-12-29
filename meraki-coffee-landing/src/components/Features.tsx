@@ -38,18 +38,18 @@ export default function Features() {
     ];
 
     return (
-        <section id="why-us" className="py-24 bg-stone-50">
-            <div className="container mx-auto px-4">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-outfit font-bold text-stone-900 mb-4">
+        <section id="why-us" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-stone-50">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 md:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-outfit font-bold text-stone-900 mb-3 sm:mb-4">
                         Why Meraki?
                     </h2>
-                    <p className="text-stone-600">
+                    <p className="text-sm sm:text-base text-stone-600 px-2">
                         More than just a coffee shop – it's a destination for flavor and relaxation.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {highlights.map((item, i) => (
                         <motion.div
                             key={i}
@@ -57,15 +57,15 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="group p-8 rounded-3xl bg-white border border-stone-100 hover:border-[#D4A373]/30 transition-all hover:shadow-xl hover:shadow-stone-200/50"
+                            className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-stone-100 hover:border-[#D4A373]/30 transition-all hover:shadow-xl hover:shadow-stone-200/50"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-stone-50 flex items-center justify-center text-stone-900 group-hover:bg-[#D4A373] group-hover:text-white transition-all mb-6">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-stone-50 flex items-center justify-center text-stone-900 group-hover:bg-[#D4A373] group-hover:text-white transition-all mb-4 sm:mb-6">
                                 {item.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-stone-900 mb-3 font-outfit">
+                            <h3 className="text-lg sm:text-xl font-bold text-stone-900 mb-2 sm:mb-3 font-outfit">
                                 {item.title}
                             </h3>
-                            <p className="text-stone-600 leading-relaxed text-sm">
+                            <p className="text-sm text-stone-600 leading-relaxed">
                                 {item.description}
                             </p>
                         </motion.div>

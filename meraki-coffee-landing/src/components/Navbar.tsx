@@ -7,17 +7,37 @@ import { cn } from "@/lib/utils";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState<string>("");
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+
+            // Track active section
+            const sections = ["why-us", "menu", "reviews", "faq", "location"];
+            const scrollPosition = window.scrollY + 150; // Offset for navbar height
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = document.getElementById(sections[i]);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        setActiveSection(sections[i]);
+                        break;
+                    }
+                }
+            }
         };
+
         window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Check on mount
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const phone = "097377 94366";
-    const mapsLink = "https://www.google.com/maps/search/?api=1&query=Meraki+The+Coffee+House+SNS+Platina+Vesu+Surat";
+    const mapsLink = "https://maps.app.goo.gl/6tzgiB7RWJiyaeS77";
     const whatsappLink = `https://wa.me/919737794366`;
 
     const navLinks = [
@@ -70,52 +90,58 @@ export default function Navbar() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleScrollTo(e, link.href)}
-                            className={cn(
-                                "text-sm font-semibold uppercase tracking-wider transition-all hover:scale-105",
-                                scrolled ? "text-stone-600 hover:text-stone-900" : "text-stone-100 hover:text-white drop-shadow-md"
-                            )}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
+                    {navLinks.map((link) => {
+                        const sectionId = link.href.replace("#", "");
+                        const isActive = activeSection === sectionId;
+                        return (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={(e) => handleScrollTo(e, link.href)}
+                                className={cn(
+                                    "text-sm font-semibold uppercase tracking-wider transition-all hover:scale-105 relative pb-1",
+                                    scrolled ? "text-stone-600 hover:text-stone-900" : "text-stone-100 hover:text-white drop-shadow-md",
+                                    isActive && "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#D4A373] after:transition-all"
+                                )}
+                            >
+                                {link.name}
+                            </a>
+                        );
+                    })}
                 </nav>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                     <a
                         href={mapsLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={cn(
-                            "hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:shadow-lg",
+                            "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-bold text-xs sm:text-sm transition-all hover:shadow-lg",
                             scrolled ? "bg-stone-100 text-stone-900 hover:bg-stone-200" : "bg-white/20 text-white backdrop-blur-md hover:bg-white/30"
                         )}
                     >
-                        <MapPin className="w-4 h-4" />
-                        <span>Directions</span>
+                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        <span className="hidden md:inline">Directions</span>
                     </a>
                     <a
                         href={`tel:${phone.replace(/\s+/g, '')}`}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#D4A373] text-stone-950 font-bold text-sm hover:bg-[#c49363] transition-all hover:shadow-lg"
+                        className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-[#D4A373] text-stone-950 font-bold text-xs sm:text-sm hover:bg-[#c49363] transition-all hover:shadow-lg"
                     >
-                        <Phone className="w-4 h-4" />
-                        <span className="hidden xs:inline">Call Now</span>
+                        <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        <span className="hidden sm:inline">Call Now</span>
                     </a>
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="lg:hidden p-2 text-stone-900"
+                        className="lg:hidden p-1.5 sm:p-2 flex-shrink-0"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? (
-                            <X className={cn("w-6 h-6", !scrolled && "text-white")} />
+                            <X className={cn("w-5 h-5 sm:w-6 sm:h-6", !scrolled && "text-white")} />
                         ) : (
-                            <MenuIcon className={cn("w-6 h-6", !scrolled && "text-white")} />
+                            <MenuIcon className={cn("w-5 h-5 sm:w-6 sm:h-6", !scrolled && "text-white")} />
                         )}
                     </button>
                 </div>
@@ -123,27 +149,34 @@ export default function Navbar() {
 
             {/* Mobile Navigation Drawer */}
             {mobileMenuOpen && (
-                <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-stone-100 p-6 animate-in slide-in-from-top duration-300">
-                    <nav className="flex flex-col gap-4">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => handleScrollTo(e, link.href)}
-                                className="text-stone-800 text-lg font-bold uppercase tracking-widest py-2 border-b border-stone-50"
-                            >
-                                {link.name}
-                            </a>
-                        ))}
+                <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-stone-100 p-4 sm:p-6 animate-in slide-in-from-top duration-300 max-h-[calc(100vh-80px)] overflow-y-auto">
+                    <nav className="flex flex-col gap-3 sm:gap-4">
+                        {navLinks.map((link) => {
+                            const sectionId = link.href.replace("#", "");
+                            const isActive = activeSection === sectionId;
+                            return (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={(e) => handleScrollTo(e, link.href)}
+                                    className={cn(
+                                        "text-stone-800 text-base sm:text-lg font-bold uppercase tracking-widest py-2 sm:py-3 border-b transition-all relative",
+                                        isActive ? "border-[#D4A373] text-[#D4A373]" : "border-stone-50"
+                                    )}
+                                >
+                                    {link.name}
+                                </a>
+                            );
+                        })}
                     </nav>
-                    <div className="mt-8 flex flex-col gap-4">
+                    <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4">
                         <a
                             href={whatsappLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#25D366] text-white font-bold"
+                            className="flex items-center justify-center gap-2 w-full py-3 sm:py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm sm:text-base"
                         >
-                            <MessageCircle className="w-5 h-5" />
+                            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                             Order on WhatsApp
                         </a>
                     </div>
