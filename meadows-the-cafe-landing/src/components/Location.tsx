@@ -12,51 +12,54 @@ const Location = () => {
   const phone = formatPhoneForTel(cafeData.contact.phone);
   const hasGoogleMaps = cafeData.contact.google_maps_link.length > 0;
 
-  const getGoogleMapsEmbedUrl = (address: string) => {
-    const encoded = encodeURIComponent(address);
-    return `https://www.google.com/maps?q=${encoded}&output=embed`;
+  const getGoogleMapsEmbedUrl = () => {
+    const businessName = cafeData.brand.business_name;
+    const address = cafeData.contact.address;
+    const query = `${businessName}, ${address}`;
+    const encoded = encodeURIComponent(query);
+    return `https://www.google.com/maps?q=${encoded}&output=embed&hl=en&z=16`;
   };
 
   const mapEmbedUrl = hasGoogleMaps && cafeData.contact.google_maps_link.includes("embed")
     ? cafeData.contact.google_maps_link
-    : getGoogleMapsEmbedUrl(cafeData.contact.address);
+    : getGoogleMapsEmbedUrl();
 
   return (
-    <section id="location" className="py-20 px-4 bg-gradient-to-b from-white to-orange-50">
+    <section id="location" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-b from-white to-orange-50">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             Visit Us
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             We&apos;re located in the heart of {cafeData.brand.city_area}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-orange-100 rounded-lg">
-                  <MapPin className="w-6 h-6 text-orange-600" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-gray-100">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-orange-100 rounded-lg shrink-0">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
-                  <p className="text-gray-700">{cafeData.contact.address}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Address</h3>
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{cafeData.contact.address}</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-orange-100 rounded-lg">
-                  <Phone className="w-6 h-6 text-orange-600" />
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-gray-100">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-orange-100 rounded-lg shrink-0">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Phone</h3>
                   <a
                     href={`tel:${phone}`}
-                    className="text-orange-600 hover:text-orange-700 font-medium"
+                    className="text-orange-600 hover:text-orange-700 font-medium text-sm sm:text-base break-all"
                   >
                     {cafeData.contact.phone}
                   </a>
@@ -64,14 +67,14 @@ const Location = () => {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-orange-100 rounded-lg">
-                  <Clock className="w-6 h-6 text-orange-600" />
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-gray-100">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-orange-100 rounded-lg shrink-0">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-2">Hours</h3>
-                  <p className="text-gray-700">{cafeData.contact.hours}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Hours</h3>
+                  <p className="text-gray-700 text-sm sm:text-base">{cafeData.contact.hours}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +107,7 @@ const Location = () => {
           </div>
 
           <div className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
-            <div className="aspect-square bg-gray-200 relative">
+            <div className="aspect-[4/3] bg-gray-200 relative min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px]">
               <iframe
                 src={mapEmbedUrl}
                 width="100%"
@@ -113,7 +116,7 @@ const Location = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
+                className="absolute inset-0 w-full h-full"
                 title={`${cafeData.brand.business_name} Location`}
               />
             </div>
