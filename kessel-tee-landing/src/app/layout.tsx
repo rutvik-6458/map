@@ -32,6 +32,11 @@ export const metadata: Metadata = {
   title: `${businessName} | ${tagline} | Vesu, Surat`,
   description: description.substring(0, 160),
   keywords: `kessel tee, tea cafe Vesu Surat, chai cafe, tea varieties, Mota Bhai Chai, Hamari Wali Chai, late night cafe, Prime Shoppers, ${cafeData.brand.city_area}, tea and snacks, dosa pizza sandwiches`,
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     title: `${businessName} | ${tagline}`,
     description: description.substring(0, 160),
