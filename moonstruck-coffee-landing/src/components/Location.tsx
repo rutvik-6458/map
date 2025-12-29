@@ -53,7 +53,7 @@ export default function Location() {
 
                             <div className="pt-4">
                                 <a
-                                    href="https://maps.app.goo.gl/3Xp8i3YmF6fXz8L39"
+                                    href="https://maps.app.goo.gl/c5QyVGGJqfriCeQ36"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-xl font-bold hover:bg-black transition-colors"
@@ -67,7 +67,7 @@ export default function Location() {
 
                     <div className="lg:w-1/2 h-[450px] lg:h-auto min-h-[400px] relative rounded-3xl overflow-hidden shadow-2xl">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.288220815147!2d72.76611!3d21.141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d603a11129f%3A0xe6775f0a716c59b3!2sMoonstruck%20Coffee!5e0!3m2!1sen!2sin!4v1710780000000!5m2!1sen!2sin"
+                            src={`https://www.google.com/maps?q=${encodeURIComponent("Moonstruck Coffee Vesu Surat")}&output=embed`}
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
@@ -75,6 +75,7 @@ export default function Location() {
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             className="grayscale contrast-125"
+                            title="Moonstruck Coffee Location"
                         ></iframe>
                     </div>
                 </div>
