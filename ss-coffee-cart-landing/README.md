@@ -92,3 +92,4 @@ All content is sourced from the provided JSON data in `src/data.ts`:
 - Gallery uses placeholder images - replace with actual photos (see IMAGE_INTEGRATION.md)
 - All content can be updated in `src/data.ts`
 
+

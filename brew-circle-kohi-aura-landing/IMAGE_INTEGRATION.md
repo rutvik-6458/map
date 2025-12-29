@@ -120,3 +120,4 @@ import heroImage from "@/assets/hero.jpg";
 - Consider image file sizes for performance (aim for <500KB per image when possible)
 
 
+

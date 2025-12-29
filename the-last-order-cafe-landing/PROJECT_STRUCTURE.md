@@ -129,3 +129,4 @@ All content flows from `src/data.ts`:
 4. Optimize images before deployment
 5. Test on various devices and browsers
 
+

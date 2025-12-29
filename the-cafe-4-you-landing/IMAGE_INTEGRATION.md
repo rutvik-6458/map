@@ -71,3 +71,4 @@ The menu section in `src/components/Menu.tsx` uses placeholder images. Update th
   - Menu items: 600x400px minimum
 
 
+

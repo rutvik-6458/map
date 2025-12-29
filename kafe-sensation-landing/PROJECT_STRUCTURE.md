@@ -217,3 +217,4 @@ The site uses a warm coffee brown theme:
 ✅ Optimized font loading (next/font)
 
 
+

@@ -42,3 +42,4 @@ const galleryImages = [
 - **Resolution**: 1200x900px or higher
 
 
+

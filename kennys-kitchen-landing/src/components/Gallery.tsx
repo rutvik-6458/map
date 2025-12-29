@@ -27,24 +27,24 @@ export default function Gallery() {
   const getDirectionsUrl = googleMapsLink || `https://www.google.com/maps?q=${encodeURIComponent(address)}`;
 
   return (
-    <section id="gallery" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+    <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-3 sm:mb-4">
             Gallery
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
             A glimpse into the Kenny's Kitchen experience
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {galleryImages.map((image, index) => {
             const isLastImage = index === galleryImages.length - 1;
             return (
               <div
                 key={index}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-orange-200 group hover:shadow-xl transition-all"
+                className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden border border-orange-200 group hover:shadow-xl transition-all"
               >
                 {/* Placeholder background - shows if image fails to load */}
                 {imageErrors[index] && (
@@ -66,8 +66,8 @@ export default function Gallery() {
                     />
                   </div>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 z-10">
-                  <p className="text-white font-semibold text-sm mb-2">{image.alt}</p>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 sm:p-4 z-10">
+                  <p className="text-white font-semibold text-xs sm:text-sm mb-2">{image.alt}</p>
                   {/* Get Directions button on last image */}
                   {isLastImage && (
                     <a

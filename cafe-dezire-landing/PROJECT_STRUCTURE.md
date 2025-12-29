@@ -174,3 +174,4 @@ cafe-dezire-landing/
 - **clsx**: 2.1.1 - Class name utility
 - **tailwind-merge**: 3.4.0 - Tailwind class merging
 
+

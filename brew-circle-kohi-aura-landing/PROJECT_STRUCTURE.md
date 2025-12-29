@@ -123,3 +123,4 @@ The project uses a warm amber/coffee color scheme:
 - **Server Components**: Footer, Features, Menu, FAQ, SocialProof, Gallery (default)
 
 
+

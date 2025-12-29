@@ -119,3 +119,4 @@ All components are:
 - ✅ Clean, reusable components
 - ✅ Single source of truth (data.ts)
 
+

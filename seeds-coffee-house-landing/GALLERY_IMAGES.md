@@ -80,3 +80,4 @@ Based on the provided JSON data, the following shots are recommended:
 - The hero image uses priority loading for better performance
 
 
+

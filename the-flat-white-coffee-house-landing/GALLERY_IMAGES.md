@@ -83,3 +83,4 @@ Based on the provided data, these are the recommended photos:
 - Interior seating and ambience
 - Evening cafe vibe
 
+

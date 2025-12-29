@@ -76,3 +76,4 @@ Based on the recommended sections, you should have:
 4. Menu display
 5. Overall cafe vibe
 
+

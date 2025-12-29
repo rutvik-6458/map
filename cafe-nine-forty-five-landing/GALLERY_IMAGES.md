@@ -54,3 +54,4 @@ const galleryItems = [
 - Resolution: At least 1200x900px for best quality
 - File size: Optimize for web (< 500KB per image recommended)
 
+

@@ -89,3 +89,4 @@ Next.js automatically optimizes images, so you don't need to worry about:
 
 Just ensure images are reasonably sized (under 5MB each) for faster uploads.
 
+

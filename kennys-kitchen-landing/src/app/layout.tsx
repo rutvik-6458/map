@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Kenny's Kitchen | Comfort Food with a Creative Twist | Vesu, Surat",
   description: "Enjoy unique fusion dishes like Pavbhaji Pie, Irish Coffee, and Peri Peri Fries in a relaxed cafe setting. Kenny's Kitchen in Vesu, Surat offers great taste, friendly service, and affordable prices. Open daily till midnight.",
   keywords: "Kenny's Kitchen, cafe Vesu Surat, Pavbhaji Pie, Irish Coffee, Peri Peri Fries, comfort food, fusion cafe, affordable cafe, VIP Road Surat, cafe dining",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     title: "Kenny's Kitchen | Comfort Food with a Creative Twist | Vesu, Surat",
     description: "Enjoy unique fusion dishes like Pavbhaji Pie, Irish Coffee, and Peri Peri Fries in a relaxed cafe setting. Great taste, friendly service, and affordable prices.",

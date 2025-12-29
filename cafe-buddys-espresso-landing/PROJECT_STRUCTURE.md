@@ -115,3 +115,4 @@ All content comes from `src/data.ts`, which contains:
 3. **Add Google Maps Link**: Update `google_maps_link` in `src/data.ts` if available
 4. **Customize Colors**: Modify Tailwind classes or CSS variables in `globals.css` if needed
 
+

@@ -99,3 +99,4 @@ Based on the photo shotlist, add these images to `src/assets/`:
 - Hover effects and transitions are already implemented
 - The grid is responsive (1 column on mobile, 2 on tablet, 3 on desktop)
 
+

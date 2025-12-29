@@ -82,3 +82,4 @@ waves-cafe-landing/
 
 All content comes from `src/data.ts` - this is the single source of truth. Update this file to change any content on the site.
 
+

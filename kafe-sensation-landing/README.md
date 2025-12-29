@@ -142,3 +142,4 @@ vercel
 - The site is fully responsive and mobile-optimized
 
 
+

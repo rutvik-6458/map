@@ -120,3 +120,4 @@ npm start
 - WhatsApp button uses the phone number provided
 - The page is fully SEO optimized with proper meta tags and schema markup
 
+

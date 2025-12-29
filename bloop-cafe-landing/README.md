@@ -143,3 +143,4 @@ Colors are defined in component files and can be customized by updating Tailwind
 - When Google Maps link is added, it will be used directly instead of address search
 - Gallery uses placeholder images - replace with actual photos per instructions above
 
+

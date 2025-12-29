@@ -106,3 +106,4 @@ All components import from `src/data.ts`:
 - Positioning and features
 
 This ensures consistency and makes updates easy - just change the data file.
+

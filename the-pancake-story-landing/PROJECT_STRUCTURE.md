@@ -94,3 +94,4 @@ All business information flows from `src/data.ts`:
 - OpenGraph tags for social sharing
 - Twitter card metadata
 
+

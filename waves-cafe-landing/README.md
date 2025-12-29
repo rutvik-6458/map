@@ -96,3 +96,4 @@ npm run build
 - Framer Motion
 - Lucide React (icons)
 
+

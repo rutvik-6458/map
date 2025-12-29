@@ -118,3 +118,4 @@ All content is in `src/data.ts` following this structure:
 6. Test on mobile and desktop
 7. Deploy to hosting platform
 
+

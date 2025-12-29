@@ -51,3 +51,4 @@ To complete the gallery section, add the following images to the `public/gallery
 - Test images on both desktop and mobile devices
 
 
+

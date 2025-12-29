@@ -100,3 +100,4 @@ All business data is centralized in `src/data.ts`. Update this file to change:
 - Google Maps link uses address-based search if no direct link is provided
 - Gallery images need to be added to `src/assets/` directory
 
+

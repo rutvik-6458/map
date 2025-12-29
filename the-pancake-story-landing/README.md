@@ -135,3 +135,4 @@ npm start
 - All components are optimized for performance and accessibility
 - The design uses a warm color palette (orange/pink/amber) suitable for a dessert cafe
 
+

@@ -63,3 +63,4 @@ Simply update the `src` URLs in the `galleryImages` array in `src/components/Gal
 - Hover effects and transitions are already implemented
 
 
+

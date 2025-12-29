@@ -85,3 +85,4 @@ Key dependencies (see `package.json`):
 - Lucide React (icons)
 - TypeScript 5
 
+

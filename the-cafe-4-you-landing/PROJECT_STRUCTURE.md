@@ -110,3 +110,4 @@ src/app/layout.tsx (wraps with SEO/metadata)
 6. **Update domain URLs** - Replace placeholder URLs in `src/app/layout.tsx`
 
 
+
