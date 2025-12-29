@@ -24,13 +24,13 @@ const FAQ = () => {
     ];
 
     return (
-        <section id="faq" className="py-16 bg-white">
-            <div className="container mx-auto px-4 max-w-3xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <section id="faq" className="py-12 sm:py-16 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+                <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-base sm:text-lg text-gray-600 px-2">
                         Everything you need to know about Dhakad Cafe
                     </p>
                 </div>

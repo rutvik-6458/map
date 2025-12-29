@@ -32,18 +32,18 @@ const Gallery = () => {
     ];
 
     return (
-        <section id="gallery" className="py-16 bg-gradient-to-b from-amber-50 to-white">
-            <div className="container mx-auto px-4 max-w-6xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <section id="gallery" className="py-12 sm:py-16 bg-gradient-to-b from-amber-50 to-white">
+            <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+                <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
                         Gallery
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
                         See what makes Dhakad Cafe special
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {galleryImages.map((image, index) => (
                         <div
                             key={index}

@@ -54,7 +54,7 @@ const Header = () => {
     ];
 
     const phoneNumber = ""; // Empty as per JSON data
-    const googleMapsLink = ""; // Empty as per JSON data
+    const googleMapsLink = "https://maps.app.goo.gl/4tZuG4navEWyTskZ7";
 
     const handleCall = () => {
         if (phoneNumber) {
@@ -63,11 +63,7 @@ const Header = () => {
     };
 
     const handleDirections = () => {
-        if (googleMapsLink) {
-            window.open(googleMapsLink, "_blank");
-        } else {
-            scrollToSection("location");
-        }
+        window.open(googleMapsLink, "_blank");
     };
 
     const handleWhatsApp = () => {
@@ -78,40 +74,54 @@ const Header = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                isScrolled
                     ? "bg-white/95 backdrop-blur-md shadow-lg"
-                    : "bg-transparent"
-                }`}
+                    : "bg-black/20 backdrop-blur-sm"
+            }`}
         >
-            <div className="container mx-auto px-4 py-4">
-                <div className="flex items-center justify-between">
+            <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
+                <div className="flex items-center justify-between gap-2 sm:gap-4">
                     {/* Logo */}
                     <button
                         onClick={() => scrollToSection("hero")}
-                        className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+                        className={`text-xl sm:text-2xl font-bold hover:scale-105 transition-transform ${
+                            isScrolled
+                                ? "bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent"
+                                : "text-white drop-shadow-lg"
+                        }`}
                     >
                         Dhakad Cafe
                     </button>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    <nav className="hidden md:flex items-center gap-4 lg:gap-8">
                         {navItems.map((item) => (
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className={`text-sm font-medium transition-all duration-200 hover:text-amber-600 relative ${activeSection === item.id ? "text-amber-600" : "text-gray-700"
-                                    }`}
+                                className={`text-sm font-medium transition-all duration-200 relative ${
+                                    isScrolled
+                                        ? activeSection === item.id
+                                            ? "text-amber-600 hover:text-amber-700"
+                                            : "text-gray-700 hover:text-amber-600"
+                                        : activeSection === item.id
+                                            ? "text-white hover:text-amber-200"
+                                            : "text-white/90 hover:text-white"
+                                }`}
                             >
                                 {item.label}
                                 {activeSection === item.id && (
-                                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-600 rounded-full" />
+                                    <span className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                                        isScrolled ? "bg-amber-600" : "bg-white"
+                                    }`} />
                                 )}
                             </button>
                         ))}
                     </nav>
 
                     {/* CTA Buttons */}
-                    <div className="hidden md:flex items-center gap-3">
+                    <div className="hidden md:flex items-center gap-2 lg:gap-3">
                         {phoneNumber && (
                             <Button
                                 variant="outline"
@@ -125,11 +135,12 @@ const Header = () => {
                         )}
                         <Button
                             size="sm"
-                            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700"
+                            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-xs sm:text-sm px-2 sm:px-4"
                             onClick={handleDirections}
                         >
-                            <Navigation className="w-4 h-4 mr-2" />
-                            Directions
+                            <Navigation className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                            <span className="hidden lg:inline">Directions</span>
+                            <span className="lg:hidden">Dir</span>
                         </Button>
                         {phoneNumber && (
                             <Button
@@ -146,13 +157,17 @@ const Header = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                        className={`md:hidden p-2 rounded-lg transition-colors ${
+                            isScrolled
+                                ? "hover:bg-gray-100"
+                                : "hover:bg-white/20 backdrop-blur-sm"
+                        }`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <X className="w-6 h-6 text-gray-700" />
+                            <X className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`} />
                         ) : (
-                            <Menu className="w-6 h-6 text-gray-700" />
+                            <Menu className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`} />
                         )}
                     </button>
                 </div>

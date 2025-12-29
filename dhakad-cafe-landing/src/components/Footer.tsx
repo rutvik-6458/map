@@ -4,7 +4,7 @@ import { Phone, Navigation, MessageCircle, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
     const phoneNumber = ""; // Empty as per JSON data
-    const googleMapsLink = ""; // Empty as per JSON data
+    const googleMapsLink = "https://maps.app.goo.gl/4tZuG4navEWyTskZ7";
     const address = "Udhana - Magdalla Rd, Someshwara Enclave, Vesu, Surat, Gujarat 395007";
     const hours = "Open daily, closes at 2 am";
 
@@ -15,12 +15,7 @@ const Footer = () => {
     };
 
     const handleDirections = () => {
-        if (googleMapsLink) {
-            window.open(googleMapsLink, "_blank");
-        } else {
-            const encodedAddress = encodeURIComponent(address);
-            window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, "_blank");
-        }
+        window.open(googleMapsLink, "_blank");
     };
 
     const handleWhatsApp = () => {
@@ -30,34 +25,34 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-gray-900 text-gray-300 py-12">
-            <div className="container mx-auto px-4 max-w-6xl">
-                <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <footer className="bg-gray-900 text-gray-300 py-10 sm:py-12">
+            <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
                     <div>
-                        <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
                             Dhakad Cafe
                         </h3>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-sm sm:text-base text-gray-400 mb-4">
                             Late-night tea spot in Vesu, Surat. Enjoy unique tea taste, cheese chilli toast, and quick snacks till 2 AM.
                         </p>
                     </div>
 
                     <div>
-                        <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
-                        <div className="space-y-3">
-                            <div className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                                <p className="text-gray-400 text-sm">{address}</p>
+                        <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Contact</h4>
+                        <div className="space-y-2 sm:space-y-3">
+                            <div className="flex items-start gap-2 sm:gap-3">
+                                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0 mt-0.5" />
+                                <p className="text-xs sm:text-sm text-gray-400 break-words">{address}</p>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <Clock className="w-5 h-5 text-amber-400 shrink-0" />
-                                <p className="text-gray-400 text-sm">{hours}</p>
+                            <div className="flex items-center gap-2 sm:gap-3">
+                                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
+                                <p className="text-xs sm:text-sm text-gray-400">{hours}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div>
-                        <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <div className="sm:col-span-2 md:col-span-1">
+                        <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Quick Links</h4>
                         <div className="flex flex-col gap-3">
                             {phoneNumber && (
                                 <button
@@ -88,8 +83,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 text-center">
-                    <p className="text-gray-500 text-sm">
+                <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                    <p className="text-gray-500 text-xs sm:text-sm">
                         © {new Date().getFullYear()} Dhakad Cafe (25Tea). All rights reserved.
                     </p>
                     <p className="text-gray-600 text-xs mt-2">

@@ -29,18 +29,18 @@ const Menu = () => {
     ];
 
     return (
-        <section id="menu" className="py-16 bg-white">
-            <div className="container mx-auto px-4 max-w-6xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <section id="menu" className="py-12 sm:py-16 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+                <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
                         Our Menu
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
                         Simple menu with popular snack items
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
                     {signatureItems.map((item, index) => {
                         const Icon = item.icon;
                         return (
@@ -59,11 +59,11 @@ const Menu = () => {
                     })}
                 </div>
 
-                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border border-amber-100">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 sm:p-8 border border-amber-100">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6 text-center">
                         Best For
                     </h3>
-                    <div className="grid md:grid-cols-3 gap-4">
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                         {bestFor.map((item, index) => (
                             <div
                                 key={index}
