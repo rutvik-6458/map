@@ -12,7 +12,7 @@ export const businessData = {
   "contact": {
     "address": "3rd Floor, 310, VIP Rd, Vesu, Surat, Gujarat 395007",
     "phone": "098988 11030",
-    "google_maps_link": "",
+    "google_maps_link": "https://maps.app.goo.gl/YCTU8ngoaQJBzPRm6",
     "hours": "Open daily · Closes 12:00 am"
   },
   "positioning": {

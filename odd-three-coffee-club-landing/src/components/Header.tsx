@@ -79,11 +79,14 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-gray-900/80 backdrop-blur-sm py-5"
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div
-          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer"
+          className={cn(
+            "text-xl md:text-2xl font-bold font-playfair cursor-pointer transition-colors",
+            isScrolled ? "text-primary" : "text-white drop-shadow-lg"
+          )}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           {businessData.brand.business_name}
@@ -97,14 +100,21 @@ export function Header() {
               onClick={() => scrollTo(item.id)}
               className={cn(
                 "text-sm font-medium transition-all relative py-1",
-                activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                isScrolled
+                  ? activeSection === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                  : activeSection === item.id
+                    ? "text-primary drop-shadow-md"
+                    : "text-white/90 hover:text-primary drop-shadow-md"
               )}
             >
               {item.label}
               {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full" />
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-full h-0.5 rounded-full",
+                  isScrolled ? "bg-primary" : "bg-primary drop-shadow-md"
+                )} />
               )}
             </button>
           ))}
@@ -112,13 +122,30 @@ export function Header() {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild className="rounded-full">
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className={cn(
+              "rounded-full",
+              isScrolled
+                ? "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
+                : "bg-white border-white/20 text-gray-900 hover:bg-white/90"
+            )}
+          >
             <a href={directionsLink} target="_blank" rel="noopener noreferrer">
               <MapPin className="mr-2 h-4 w-4" /> Directions
             </a>
           </Button>
           {phoneNumber && (
-            <Button size="sm" asChild className="rounded-full shadow-lg shadow-primary/20">
+            <Button
+              size="sm"
+              asChild
+              className={cn(
+                "rounded-full shadow-lg",
+                isScrolled ? "shadow-primary/20" : "bg-primary hover:bg-primary/90 text-white shadow-primary/30"
+              )}
+            >
               <a href={`tel:${phoneNumber}`}>
                 <Phone className="mr-2 h-4 w-4" /> Call Now
               </a>
@@ -137,24 +164,27 @@ export function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <Button size="sm" variant="ghost" asChild className="p-2">
             <a href={directionsLink} target="_blank" rel="noopener noreferrer">
-              <MapPin className="h-5 w-5 text-primary" />
+              <MapPin className={cn("h-5 w-5", isScrolled ? "text-primary" : "text-white")} />
             </a>
           </Button>
           {phoneNumber && (
             <Button size="sm" variant="ghost" asChild className="p-2">
               <a href={`tel:${phoneNumber}`}>
-                <Phone className="h-5 w-5 text-primary" />
+                <Phone className={cn("h-5 w-5", isScrolled ? "text-primary" : "text-white")} />
               </a>
             </Button>
           )}
           {whatsappNumber && (
             <Button size="sm" variant="ghost" asChild className="p-2">
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 text-primary" />
+                <MessageCircle className={cn("h-5 w-5", isScrolled ? "text-primary" : "text-white")} />
               </a>
             </Button>
           )}
-          <button className="p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button
+            className={cn("p-2 transition-colors", isScrolled ? "text-gray-700" : "text-white")}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>

@@ -12,6 +12,40 @@ export function Location() {
 
   const directionsLink = googleMapsLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
+  // Convert Google Maps link to embeddable format
+  const getEmbedUrl = () => {
+    if (!googleMapsLink) {
+      return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`;
+    }
+
+    // If already an embed URL, return as is
+    if (googleMapsLink.includes("/embed/")) {
+      return googleMapsLink;
+    }
+
+    // Handle short links (maps.app.goo.gl)
+    if (googleMapsLink.includes("maps.app.goo.gl") || googleMapsLink.includes("goo.gl/maps")) {
+      // Extract the place ID or use address-based embed
+      return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`;
+    }
+
+    // Handle /dir/ links
+    if (googleMapsLink.includes("/dir/")) {
+      return googleMapsLink.replace("/dir/", "/embed/");
+    }
+
+    // Handle place links
+    if (googleMapsLink.includes("/place/")) {
+      const placeIdMatch = googleMapsLink.match(/\/place\/([^/]+)/);
+      if (placeIdMatch) {
+        return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.${placeIdMatch[1]}!2d72.${placeIdMatch[1]}!3d21.${placeIdMatch[1]}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAwJzAwLjAiTiA3MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin`;
+      }
+    }
+
+    // Fallback to address-based embed
+    return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`;
+  };
+
   return (
     <section id="location" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -94,35 +128,17 @@ export function Location() {
           </div>
 
           <div className="bg-gray-200 rounded-2xl overflow-hidden border border-gray-300 aspect-[4/3] flex items-center justify-center">
-            {googleMapsLink ? (
-              <iframe
-                src={
-                  googleMapsLink.includes("/embed/")
-                    ? googleMapsLink
-                    : googleMapsLink.replace("/dir/", "/embed/")
-                }
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title={`${businessData.brand.business_name} Location`}
-              ></iframe>
-            ) : (
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title={`${businessData.brand.business_name} Location`}
-              ></iframe>
-            )}
+            <iframe
+              src={getEmbedUrl()}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+              title={`${businessData.brand.business_name} Location`}
+            ></iframe>
           </div>
         </div>
       </div>
