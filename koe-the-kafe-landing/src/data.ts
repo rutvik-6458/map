@@ -12,7 +12,7 @@ export const businessData = {
   "contact": {
     "address": "205, International Finance Centre, VIP Rd, Opp. Fire Station, Vesu, Surat, Gujarat 395007",
     "phone": "092741 12840",
-    "google_maps_link": "https://maps.google.com/?q=KOE+-+The+Kafe+Vesu+Surat",
+    "google_maps_link": "https://maps.app.goo.gl/pqKis89NWHwQnH2G8",
     "hours": "Open daily, closes at 11:30 pm"
   },
   "positioning": {

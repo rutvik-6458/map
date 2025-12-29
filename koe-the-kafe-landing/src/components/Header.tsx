@@ -72,11 +72,13 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+      isScrolled
+        ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
+        : "bg-gray-900/80 backdrop-blur-md py-5"
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div
-          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer"
+          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer transition-colors"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           {businessData.brand.business_name}
@@ -90,9 +92,13 @@ export function Header() {
               onClick={() => scrollTo(item.id)}
               className={cn(
                 "text-sm font-medium transition-all relative py-1",
-                activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                isScrolled
+                  ? activeSection === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                  : activeSection === item.id
+                    ? "text-primary"
+                    : "text-gray-300 hover:text-primary"
               )}
             >
               {item.label}
@@ -124,7 +130,13 @@ export function Header() {
                     <Phone className="h-5 w-5 text-primary" />
                 </a>
             </Button>
-            <button className="p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <button
+              className={cn(
+                "p-2 transition-colors",
+                isScrolled ? "text-gray-700" : "text-gray-300"
+              )}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
                 {mobileMenuOpen ? <X /> : <Menu />}
             </button>
         </div>

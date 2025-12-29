@@ -3,6 +3,10 @@ import { MapPin, Phone, Clock, Navigation } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function Location() {
+  // Generate Google Maps embed URL for International Finance Centre, Vesu
+  // This centers the map on IFC as shown in the reference image
+  const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent("International Finance Centre, VIP Rd, Vesu, Surat, Gujarat 395007")}&output=embed`;
+
   return (
     <section id="location" className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
@@ -64,10 +68,11 @@ export function Location() {
 
             <div className="h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white relative group">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0543788734636!2d72.7711462!3d21.1415065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be053d266666667%3A0x6666666666666666!2sKOE+-+The+Kafe!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    src={mapsEmbedUrl}
                     className="w-full h-full grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
                 ></iframe>
                 <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/10 rounded-[2.5rem]" />
             </div>
