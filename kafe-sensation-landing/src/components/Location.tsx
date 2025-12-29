@@ -12,6 +12,20 @@ export function Location() {
 
   const directionsLink = googleMapsLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
+  // Generate embed URL for iframe - always use address since short URLs can't be embedded
+  const getEmbedUrl = () => {
+    // If it's a short URL (maps.app.goo.gl) or regular URL without embed, use address-based embed
+    if (!googleMapsLink || googleMapsLink.includes("maps.app.goo.gl") || googleMapsLink.includes("/dir/")) {
+      return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`;
+    }
+    // If it's already an embed URL, use it
+    if (googleMapsLink.includes("/embed/")) {
+      return googleMapsLink;
+    }
+    // Default: use address-based embed
+    return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`;
+  };
+
   return (
     <section id="location" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -94,35 +108,17 @@ export function Location() {
           </div>
 
           <div className="bg-gray-200 rounded-2xl overflow-hidden border border-gray-300 aspect-[4/3] flex items-center justify-center">
-            {googleMapsLink ? (
-              <iframe
-                src={
-                  googleMapsLink.includes("/embed/")
-                    ? googleMapsLink
-                    : googleMapsLink.replace("/dir/", "/embed/")
-                }
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title="Kafe Sensation Location"
-              ></iframe>
-            ) : (
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title="Kafe Sensation Location"
-              ></iframe>
-            )}
+            <iframe
+              src={getEmbedUrl()}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+              title="Kafe Sensation Location"
+            ></iframe>
           </div>
         </div>
       </div>

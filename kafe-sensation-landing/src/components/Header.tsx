@@ -83,7 +83,10 @@ export function Header() {
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div
-          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer"
+          className={cn(
+            "text-xl md:text-2xl font-bold font-playfair cursor-pointer transition-colors",
+            isScrolled ? "text-primary" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+          )}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           {businessData.brand.business_name}
@@ -97,14 +100,21 @@ export function Header() {
               onClick={() => scrollTo(item.id)}
               className={cn(
                 "text-sm font-medium transition-all relative py-1",
-                activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                isScrolled
+                  ? activeSection === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                  : activeSection === item.id
+                    ? "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                    : "text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:text-white"
               )}
             >
               {item.label}
               {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full" />
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-full h-0.5 rounded-full",
+                  isScrolled ? "bg-primary" : "bg-white"
+                )} />
               )}
             </button>
           ))}
@@ -147,7 +157,13 @@ export function Header() {
               </a>
             </Button>
           )}
-          <button className="p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button
+            className={cn(
+              "p-2 transition-colors",
+              isScrolled ? "text-gray-700" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+            )}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>

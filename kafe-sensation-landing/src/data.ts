@@ -12,7 +12,7 @@ export const businessData = {
   "contact": {
     "address": "Aagam Viviana, C-16/17, VIP Rd, near Black Bunny Circle, Vesu, Surat, Gujarat 395007",
     "phone": "088491 54850",
-    "google_maps_link": "",
+    "google_maps_link": "https://maps.app.goo.gl/febUuibmnVZ3o3Lr5",
     "hours": "Open daily · Closes 11 pm"
   },
   "positioning": {

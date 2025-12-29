@@ -29,12 +29,12 @@ export function Trust() {
               <p className="text-lg italic text-foreground leading-relaxed mb-6">
                 "{quote}"
               </p>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {String.fromCharCode(65 + index)}
                 </div>
                 <div>
-                  <p className="font-semibold text-sm">Happy Customer</p>
+                  <p className="font-semibold text-sm text-foreground">Happy Customer</p>
                   <p className="text-xs text-muted-foreground">Local Guide</p>
                 </div>
               </div>

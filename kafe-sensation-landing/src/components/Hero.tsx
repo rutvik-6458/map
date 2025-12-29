@@ -39,7 +39,7 @@ export function Hero() {
           {subheadline}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
+        {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
           {whatsappNumber && (
             <Button size="lg" className="rounded-full px-8 h-14 text-base font-semibold group shadow-xl shadow-primary/20 bg-green-600 hover:bg-green-700" asChild>
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
@@ -61,7 +61,7 @@ export function Hero() {
               <MapPin className="mr-2 h-5 w-5" /> Get Directions
             </a>
           </Button>
-        </div>
+        </div> */}
 
         <div className="mt-16 flex items-center justify-center gap-8 text-white/80 text-sm font-medium animate-in fade-in duration-1000 delay-700">
           <div className="flex items-center gap-2">
