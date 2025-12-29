@@ -10,10 +10,8 @@ export function Hero() {
   const subheadline = businessData.content_blocks.hero_subheadline_options[0];
   const phoneNumber = businessData.contact.phone;
   const whatsappNumber = phoneNumber ? phoneNumber.replace(/\s+/g, '') : '';
-  const hasGoogleMaps = businessData.contact.google_maps_link && businessData.contact.google_maps_link.trim() !== '';
-  const directionsLink = hasGoogleMaps
-    ? businessData.contact.google_maps_link
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessData.contact.address)}`;
+  // Use the specific Google Maps link provided
+  const directionsLink = "https://maps.app.goo.gl/TESMjyzDw4g21rDTA";
 
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">

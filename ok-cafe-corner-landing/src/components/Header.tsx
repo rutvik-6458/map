@@ -71,10 +71,8 @@ export function Header() {
 
   const phoneNumber = businessData.contact.phone;
   const whatsappNumber = phoneNumber ? phoneNumber.replace(/\s+/g, '') : '';
-  const hasGoogleMaps = businessData.contact.google_maps_link && businessData.contact.google_maps_link.trim() !== '';
-  const directionsLink = hasGoogleMaps
-    ? businessData.contact.google_maps_link
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessData.contact.address)}`;
+  // Use the specific Google Maps link provided
+  const directionsLink = "https://maps.app.goo.gl/TESMjyzDw4g21rDTA";
 
   return (
     <header className={cn(
@@ -83,7 +81,10 @@ export function Header() {
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div
-          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer"
+          className={cn(
+            "text-xl md:text-2xl font-bold font-playfair cursor-pointer transition-colors",
+            isScrolled ? "text-primary" : "text-white"
+          )}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           {businessData.brand.business_name}
@@ -97,14 +98,21 @@ export function Header() {
               onClick={() => scrollTo(item.id)}
               className={cn(
                 "text-sm font-medium transition-all relative py-1",
-                activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                isScrolled
+                  ? activeSection === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                  : activeSection === item.id
+                    ? "text-white"
+                    : "text-white/90 hover:text-white"
               )}
             >
               {item.label}
               {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full" />
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-full h-0.5 rounded-full",
+                  isScrolled ? "bg-primary" : "bg-white"
+                )} />
               )}
             </button>
           ))}
@@ -112,13 +120,28 @@ export function Header() {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild className="rounded-full">
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className={cn(
+              "rounded-full",
+              !isScrolled && "border-white/30 text-white hover:bg-white/10 hover:border-white/50"
+            )}
+          >
             <a href={directionsLink} target="_blank" rel="noopener noreferrer">
               <MapPin className="mr-2 h-4 w-4" /> Directions
             </a>
           </Button>
           {phoneNumber && (
-            <Button size="sm" asChild className="rounded-full shadow-lg shadow-primary/20">
+            <Button
+              size="sm"
+              asChild
+              className={cn(
+                "rounded-full shadow-lg",
+                isScrolled ? "shadow-primary/20" : "bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 shadow-white/10"
+              )}
+            >
               <a href={`tel:${phoneNumber}`}>
                 <Phone className="mr-2 h-4 w-4" /> Call Now
               </a>
@@ -137,25 +160,32 @@ export function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <Button size="sm" variant="ghost" asChild className="p-2">
             <a href={directionsLink} target="_blank" rel="noopener noreferrer">
-              <MapPin className="h-5 w-5 text-primary" />
+              <MapPin className={cn("h-5 w-5", isScrolled ? "text-primary" : "text-white")} />
             </a>
           </Button>
           {phoneNumber && (
             <Button size="sm" variant="ghost" asChild className="p-2">
               <a href={`tel:${phoneNumber}`}>
-                <Phone className="h-5 w-5 text-primary" />
+                <Phone className={cn("h-5 w-5", isScrolled ? "text-primary" : "text-white")} />
               </a>
             </Button>
           )}
           {whatsappNumber && (
             <Button size="sm" variant="ghost" asChild className="p-2">
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 text-primary" />
+                <MessageCircle className={cn("h-5 w-5", isScrolled ? "text-primary" : "text-white")} />
               </a>
             </Button>
           )}
-          <button className="p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X /> : <Menu />}
+          <button
+            className="p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? (
+              <X className={cn(isScrolled ? "text-gray-900" : "text-white")} />
+            ) : (
+              <Menu className={cn(isScrolled ? "text-gray-900" : "text-white")} />
+            )}
           </button>
         </div>
       </div>
@@ -169,7 +199,7 @@ export function Header() {
               onClick={() => scrollTo(item.id)}
               className={cn(
                 "text-left text-lg font-medium",
-                activeSection === item.id ? "text-primary" : "text-gray-600"
+                activeSection === item.id ? "text-primary" : "text-gray-700"
               )}
             >
               {item.label}

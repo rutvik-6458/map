@@ -8,9 +8,13 @@ export function Location() {
   const hours = businessData.contact.hours;
   const phoneNumber = businessData.contact.phone;
   const whatsappNumber = phoneNumber ? phoneNumber.replace(/\s+/g, '') : '';
-  const googleMapsLink = businessData.contact.google_maps_link || "";
+  const businessName = businessData.brand.business_name;
 
-  const directionsLink = googleMapsLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  // Use the specific Google Maps link provided
+  const directionsLink = "https://maps.app.goo.gl/TESMjyzDw4g21rDTA";
+
+  // Create a specific query for the map embed to show the exact location
+  const mapQuery = `${businessName}, ${address}`;
 
   return (
     <section id="location" className="py-20 bg-white">
@@ -94,35 +98,17 @@ export function Location() {
           </div>
 
           <div className="bg-gray-200 rounded-2xl overflow-hidden border border-gray-300 aspect-[4/3] flex items-center justify-center">
-            {googleMapsLink ? (
-              <iframe
-                src={
-                  googleMapsLink.includes("/embed/")
-                    ? googleMapsLink
-                    : googleMapsLink.replace("/dir/", "/embed/")
-                }
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title="OK Café Corner Location"
-              ></iframe>
-            ) : (
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=en`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title="OK Café Corner Location"
-              ></iframe>
-            )}
+            <iframe
+              src={`https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed&hl=en&zoom=17`}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+              title="OK Café Corner Location"
+            ></iframe>
           </div>
         </div>
       </div>
