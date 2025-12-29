@@ -12,7 +12,7 @@ export const cafeData = {
   contact: {
     address: "G-16, Ground Floor, Safal Square, Vesu, Surat, Gujarat 395007",
     phone: "",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/ZHHwagyiF4UNCVc48",
     hours: "Open · Closes 8:30 pm",
   },
   positioning: {

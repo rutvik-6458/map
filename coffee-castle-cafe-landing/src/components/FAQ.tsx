@@ -8,13 +8,13 @@ import { cafeData } from "@/data";
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 px-4 bg-white">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 px-4 bg-white">
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-900 mb-3 sm:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-base sm:text-lg text-stone-600 px-4">
             Everything you need to know about {cafeData.brand.business_name}
           </p>
         </div>

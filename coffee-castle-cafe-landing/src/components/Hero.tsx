@@ -37,38 +37,38 @@ const Hero = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center space-y-8">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg px-2">
               {cafeData.content_blocks.hero_headline_options[0]}
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md px-4">
               {cafeData.content_blocks.hero_subheadline_options[0]}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4 px-4">
             {hasPhone && (
               <Button
                 size="lg"
-                className="bg-white text-amber-900 hover:bg-amber-50 text-base px-8 py-6 shadow-lg border-2 border-amber-200"
+                className="bg-white text-amber-900 hover:bg-amber-50 text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 shadow-lg border-2 border-amber-200 w-full sm:w-auto"
                 onClick={() => window.open(`tel:${phone}`, "_self")}
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Call Now
               </Button>
             )}
             {hasGoogleMaps ? (
               <Button
                 size="lg"
-                className="bg-amber-800 hover:bg-amber-900 text-white text-base px-8 py-6 shadow-lg"
+                className="bg-amber-800 hover:bg-amber-900 text-white text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 shadow-lg w-full sm:w-auto"
                 onClick={() => window.open(cafeData.contact.google_maps_link, "_blank")}
               >
-                <Navigation className="w-5 h-5 mr-2" />
+                <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Get Directions
               </Button>
             ) : (
               <Button
                 size="lg"
-                className="bg-amber-800 hover:bg-amber-900 text-white text-base px-8 py-6 shadow-lg"
+                className="bg-amber-800 hover:bg-amber-900 text-white text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 shadow-lg w-full sm:w-auto"
                 onClick={() => {
                   const element = document.getElementById("location");
                   if (element) {
@@ -76,14 +76,14 @@ const Hero = () => {
                   }
                 }}
               >
-                <Navigation className="w-5 h-5 mr-2" />
+                <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Get Directions
               </Button>
             )}
             {hasWhatsApp && (
               <Button
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white text-base px-8 py-6 shadow-lg"
+                className="bg-green-600 hover:bg-green-700 text-white text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 shadow-lg w-full sm:w-auto"
                 onClick={() =>
                   window.open(
                     `https://wa.me/${whatsappNumber.replace(/\+/g, "")}`,
@@ -91,14 +91,14 @@ const Hero = () => {
                   )
                 }
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 WhatsApp
               </Button>
             )}
           </div>
 
-          <div className="pt-8">
-            <p className="text-sm text-white/80 drop-shadow-md">
+          <div className="pt-6 sm:pt-8 px-4">
+            <p className="text-xs sm:text-sm text-white/80 drop-shadow-md">
               {cafeData.contact.hours} • {cafeData.brand.city_area}
             </p>
           </div>

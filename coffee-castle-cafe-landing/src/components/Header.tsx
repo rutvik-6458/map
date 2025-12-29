@@ -8,13 +8,46 @@ import { cafeData } from "@/data";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+
+  const navItems = [
+    { id: "hero", label: "Home" },
+    { id: "features", label: "Features" },
+    { id: "menu", label: "Menu" },
+    { id: "gallery", label: "Gallery" },
+    { id: "faq", label: "FAQ" },
+    { id: "location", label: "Location" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Detect active section
+      const scrollPosition = window.scrollY + 100;
+      let currentSection = "hero";
+
+      for (const item of navItems) {
+        const element = document.getElementById(item.id);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            currentSection = item.id;
+            break;
+          }
+        }
+      }
+
+      // Handle hero section (when at top of page)
+      if (window.scrollY < 100) {
+        currentSection = "hero";
+      }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -41,15 +74,6 @@ const Header = () => {
   const hasWhatsApp = hasPhone;
   const hasGoogleMaps = cafeData.contact.google_maps_link.length > 0;
 
-  const navItems = [
-    { id: "hero", label: "Home" },
-    { id: "features", label: "Features" },
-    { id: "menu", label: "Menu" },
-    { id: "gallery", label: "Gallery" },
-    { id: "faq", label: "FAQ" },
-    { id: "location", label: "Location" },
-  ];
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -62,21 +86,43 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-800 to-amber-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+            className={`text-xl md:text-2xl font-bold hover:scale-105 transition-transform ${
+              isScrolled
+                ? "bg-gradient-to-r from-amber-800 to-amber-600 bg-clip-text text-transparent"
+                : "text-white drop-shadow-lg"
+            }`}
           >
             {cafeData.brand.business_name}
           </button>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium transition-all duration-200 hover:text-amber-700 text-gray-700"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-all duration-200 relative pb-1 ${
+                    isScrolled
+                      ? isActive
+                        ? "text-amber-700"
+                        : "text-gray-700 hover:text-amber-700"
+                      : isActive
+                      ? "text-white drop-shadow-lg"
+                      : "text-white drop-shadow-lg hover:text-amber-200"
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span
+                      className={`absolute bottom-0 left-0 right-0 h-0.5 transition-all duration-200 ${
+                        isScrolled ? "bg-amber-700" : "bg-white"
+                      }`}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
@@ -128,13 +174,17 @@ const Header = () => {
           </div>
 
           <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? "hover:bg-gray-100"
+                : "hover:bg-white/20"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white drop-shadow-lg"}`} />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white drop-shadow-lg"}`} />
             )}
           </button>
         </div>
@@ -142,15 +192,22 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
             <nav className="flex flex-col gap-3">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-left px-4 py-2 rounded-lg transition-all text-gray-700 hover:bg-amber-100"
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`text-left px-4 py-2 rounded-lg transition-all relative ${
+                      isActive
+                        ? "text-amber-700 bg-amber-50 font-semibold border-l-4 border-amber-700"
+                        : "text-gray-700 hover:bg-amber-100"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
               <div className="flex flex-col gap-2 mt-2 px-4">
                 {hasPhone && (
                   <Button
