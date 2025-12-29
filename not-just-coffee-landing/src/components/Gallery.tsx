@@ -44,24 +44,24 @@ export default function Gallery() {
     ];
 
     return (
-        <section className="py-24 bg-white" id="gallery">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white" id="gallery">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="text-center mb-10 sm:mb-12 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight px-2">
                             Gallery
                         </h2>
-                        <p className="text-gray-600 text-lg font-medium max-w-2xl mx-auto">
+                        <p className="text-gray-600 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto px-2">
                             Take a look at our cozy ambience, delicious desserts, and welcoming atmosphere.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {galleryItems.map((item, idx) => (
                         <motion.div
                             key={item.id}
@@ -69,7 +69,7 @@ export default function Gallery() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
-                            className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200 shadow-lg group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                            className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200 shadow-lg group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
                         >
                             <Image
                                 src={item.image}
