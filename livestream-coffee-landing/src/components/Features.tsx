@@ -44,40 +44,40 @@ const features = [
 
 export default function Features() {
     return (
-        <section id="why-us" className="py-24 bg-stone-50">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="space-y-8">
-                        <div className="space-y-4">
-                            <h2 className="text-sm font-bold text-amber-800 uppercase tracking-[0.3em]">Highlights</h2>
-                            <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-stone-900 leading-tight italic">
+        <section id="why-us" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-stone-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+                    <div className="space-y-6 sm:space-y-8">
+                        <div className="space-y-3 sm:space-y-4">
+                            <h2 className="text-xs sm:text-sm font-bold text-amber-800 uppercase tracking-[0.3em]">Highlights</h2>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-black text-stone-900 leading-tight italic">
                                 More Than Just <br />
                                 <span className="text-amber-800">A Coffee Shop</span>
                             </h3>
                         </div>
 
-                        <p className="text-xl text-stone-600 leading-relaxed font-medium">
+                        <p className="text-base sm:text-lg md:text-xl text-stone-600 leading-relaxed font-medium">
                             Livestream Coffee Vesu is a popular destination in Surat, loved for its signature cheesecakes and welcoming atmosphere.
                             Whether you're looking to relax or catch up with friends, we provide the perfect setting.
                         </p>
 
-                        <div className="pt-4">
-                            <div className="p-8 rounded-[2rem] bg-white border border-stone-100 shadow-xl shadow-stone-200/50">
-                                <blockquote className="text-2xl font-serif font-bold text-stone-800 italic leading-snug">
+                        <div className="pt-2 sm:pt-4">
+                            <div className="p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-white border border-stone-100 shadow-xl shadow-stone-200/50">
+                                <blockquote className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-stone-800 italic leading-snug">
                                     "Livestream Coffee Vesu is especially popular for its wide variety of cheesecakes and quality coffee that keeps the vibrant crowd coming back."
                                 </blockquote>
                             </div>
                         </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                         {features.map((feature, i) => (
-                            <div key={i} className="group p-8 rounded-[2.5rem] bg-white border border-stone-100 transition-all hover:shadow-2xl hover:-translate-y-2">
-                                <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:rotate-6", feature.color)}>
-                                    <feature.icon className="w-7 h-7" />
+                            <div key={i} className="group p-6 sm:p-8 rounded-2xl sm:rounded-[2.5rem] bg-white border border-stone-100 transition-all hover:shadow-2xl hover:-translate-y-2">
+                                <div className={cn("w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-transform group-hover:rotate-6", feature.color)}>
+                                    <feature.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                                 </div>
-                                <h4 className="text-xl font-bold text-stone-900 mb-3 uppercase tracking-tight">{feature.title}</h4>
-                                <p className="text-stone-500 font-medium leading-relaxed">{feature.desc}</p>
+                                <h4 className="text-lg sm:text-xl font-bold text-stone-900 mb-2 sm:mb-3 uppercase tracking-tight">{feature.title}</h4>
+                                <p className="text-sm sm:text-base text-stone-500 font-medium leading-relaxed">{feature.desc}</p>
                             </div>
                         ))}
                     </div>

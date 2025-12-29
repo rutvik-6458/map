@@ -26,49 +26,50 @@ export default function Menu() {
     const whatsappLink = "https://wa.me/919376229229?text=Hi, I would like to order...";
 
     return (
-        <section id="menu" className="py-24 bg-stone-900 text-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-                    <div className="space-y-4">
-                        <h2 className="text-sm font-bold text-amber-500 uppercase tracking-[0.3em]">The Selection</h2>
-                        <h3 className="text-4xl md:text-6xl font-serif font-black italic">Signature Items</h3>
+        <section id="menu" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-stone-900 text-white overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
+                    <div className="space-y-3 sm:space-y-4">
+                        <h2 className="text-xs sm:text-sm font-bold text-amber-500 uppercase tracking-[0.3em]">The Selection</h2>
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-black italic">Signature Items</h3>
                     </div>
                     <a
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-amber-600 text-white font-bold hover:bg-amber-700 transition-all active:scale-95"
+                        className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-amber-600 text-white font-bold text-sm sm:text-base hover:bg-amber-700 transition-all active:scale-95 w-full md:w-auto"
                     >
-                        <MessageCircle className="w-5 h-5" />
-                        Order on WhatsApp
+                        <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span>Order on WhatsApp</span>
                     </a>
                 </div>
 
-                <div className="space-y-20">
+                <div className="space-y-12 sm:space-y-16 md:space-y-20">
                     {menuItems.map((group, idx) => (
-                        <div key={idx} className="space-y-12">
-                            <h4 className="text-2xl font-bold uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800 pb-4">
+                        <div key={idx} className="space-y-8 sm:space-y-10 md:space-y-12">
+                            <h4 className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800 pb-3 sm:pb-4">
                                 {group.category}
                             </h4>
 
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
                                 {group.items.map((item, i) => (
-                                    <div key={i} className="group flex flex-col gap-6">
-                                        <div className="aspect-[4/3] rounded-[2rem] overflow-hidden bg-stone-800 relative">
+                                    <div key={i} className="group flex flex-col gap-4 sm:gap-6">
+                                        <div className="aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-800 relative">
                                             <img
                                                 src={item.image}
                                                 alt={item.name}
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                                                loading="lazy"
                                             />
-                                            <div className="absolute top-4 right-4 bg-white text-stone-900 px-4 py-1 rounded-full font-black text-sm">
+                                            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white text-stone-900 px-3 sm:px-4 py-1 rounded-full font-black text-xs sm:text-sm">
                                                 {item.price}
                                             </div>
                                         </div>
                                         <div className="space-y-2 px-2">
-                                            <h5 className="text-2xl font-serif font-bold group-hover:text-amber-500 transition-colors uppercase italic tracking-tight">
+                                            <h5 className="text-lg sm:text-xl md:text-2xl font-serif font-bold group-hover:text-amber-500 transition-colors uppercase italic tracking-tight">
                                                 {item.name}
                                             </h5>
-                                            <p className="text-stone-400 font-medium leading-relaxed italic">
+                                            <p className="text-sm sm:text-base text-stone-400 font-medium leading-relaxed italic">
                                                 {item.desc}
                                             </p>
                                         </div>

@@ -31,37 +31,37 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="py-24 bg-stone-50">
-            <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-12">
-                <div className="text-center space-y-4">
-                    <h2 className="text-sm font-bold text-amber-800 uppercase tracking-[0.3em]">Common Questions</h2>
-                    <h3 className="text-4xl md:text-5xl font-serif font-black text-stone-900 italic">Frequently Asked</h3>
+        <section id="faq" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-stone-50">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 space-y-8 sm:space-y-10 md:space-y-12">
+                <div className="text-center space-y-3 sm:space-y-4">
+                    <h2 className="text-xs sm:text-sm font-bold text-amber-800 uppercase tracking-[0.3em]">Common Questions</h2>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-black text-stone-900 italic px-4">Frequently Asked</h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                     {faqs.map((faq, i) => (
                         <div
                             key={i}
                             className={cn(
-                                "group transition-all duration-300 rounded-[2rem] border overflow-hidden",
+                                "group transition-all duration-300 rounded-xl sm:rounded-2xl border overflow-hidden",
                                 openIndex === i ? "bg-white border-amber-200 shadow-xl shadow-amber-900/5" : "bg-white border-stone-100 hover:border-amber-100"
                             )}
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full flex items-center justify-between p-8 text-left"
+                                className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 text-left gap-4"
                             >
                                 <span className={cn(
-                                    "text-xl font-bold italic tracking-tight transition-colors",
+                                    "text-base sm:text-lg md:text-xl font-bold italic tracking-tight transition-colors flex-1",
                                     openIndex === i ? "text-amber-900" : "text-stone-800 group-hover:text-amber-800"
                                 )}>
                                     {faq.q}
                                 </span>
                                 <div className={cn(
-                                    "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all",
+                                    "flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all",
                                     openIndex === i ? "bg-amber-900 text-white rotate-45" : "bg-stone-100 text-stone-400 group-hover:bg-amber-100 group-hover:text-amber-900"
                                 )}>
-                                    <Plus className="w-5 h-5" />
+                                    <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                                 </div>
                             </button>
 
@@ -72,7 +72,7 @@ export default function FAQ() {
                                 )}
                             >
                                 <div className="overflow-hidden">
-                                    <div className="px-8 pb-8 text-lg text-stone-600 font-medium leading-relaxed italic">
+                                    <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 text-sm sm:text-base md:text-lg text-stone-600 font-medium leading-relaxed italic">
                                         {faq.a}
                                     </div>
                                 </div>
