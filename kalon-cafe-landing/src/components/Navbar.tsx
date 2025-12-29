@@ -8,12 +8,33 @@ import { cafeData } from "@/data";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Active section detection
+      const scrollPosition = window.scrollY + 150; // Offset for navbar height
+
+      for (const link of navLinks) {
+        const sectionId = link.href.slice(1); // Remove # from href
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -75,19 +96,27 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href)}
-              className={cn(
-                "text-sm font-semibold uppercase tracking-wider transition-all hover:scale-105",
-                scrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-700 hover:text-gray-900"
-              )}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const sectionId = link.href.slice(1);
+            const isActive = activeSection === sectionId;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleScrollTo(e, link.href)}
+                className={cn(
+                  "text-sm font-semibold uppercase tracking-wider transition-all hover:scale-105 relative py-1",
+                  scrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-700 hover:text-gray-900",
+                  isActive && "text-amber-600"
+                )}
+              >
+                {link.name}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-600 rounded-full transition-all duration-300" />
+                )}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Action Buttons */}
@@ -109,16 +138,19 @@ export default function Navbar() {
           {telLink && (
             <a
               href={telLink}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-600 text-white font-bold text-sm hover:bg-amber-700 transition-all hover:shadow-lg"
+              className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-amber-600 text-white font-bold text-sm hover:bg-amber-700 transition-all hover:shadow-lg"
             >
               <Phone className="w-4 h-4" />
-              <span className="hidden xs:inline">Call Now</span>
+              <span className="hidden sm:inline">Call Now</span>
             </a>
           )}
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-gray-900"
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            className="lg:hidden p-2 text-gray-900 hover:text-amber-600 transition-colors z-10 relative flex-shrink-0"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -134,16 +166,26 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100 p-6 animate-in slide-in-from-top duration-300">
           <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleScrollTo(e, link.href)}
-                className="text-gray-800 text-lg font-bold uppercase tracking-widest py-2 border-b border-gray-50"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.slice(1);
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  className={cn(
+                    "text-gray-800 text-lg font-bold uppercase tracking-widest py-2 border-b border-gray-50 relative transition-colors",
+                    isActive && "text-amber-600"
+                  )}
+                >
+                  {link.name}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-amber-600 rounded-full" />
+                  )}
+                </a>
+              );
+            })}
           </nav>
           <div className="mt-8 flex flex-col gap-4">
             {whatsappLink && (
