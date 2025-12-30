@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Trust() {
     const reviews = [
@@ -23,41 +24,44 @@ export default function Trust() {
     ];
 
     return (
-        <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+        <section className="py-16 sm:py-20 md:py-24 bg-gray-50/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="text-center mb-12 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Community Trust</h2>
-                        <div className="flex flex-col items-center justify-center gap-4">
-                            <div className="flex items-center gap-2">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight px-2">Community Trust</h2>
+                        <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
+                            <div className="flex items-center gap-1 sm:gap-2">
                                 <div className="flex text-pink-400">
                                     {[1, 2, 3, 4, 5].map(i => (
                                         <Star
                                             key={i}
-                                            size={28}
-                                            className={i <= 4.3 ? "fill-current" : "fill-gray-300"}
+                                            size={24}
+                                            className={cn(
+                                                "sm:w-7 sm:h-7",
+                                                i <= 4.3 ? "fill-current" : "fill-gray-300"
+                                            )}
                                         />
                                     ))}
                                 </div>
                             </div>
-                            <div className="text-lg font-semibold text-gray-700">
-                                <span className="text-3xl text-gray-900 mr-2">4.3</span>
+                            <div className="text-base sm:text-lg font-semibold text-gray-700 px-2">
+                                <span className="text-2xl sm:text-3xl text-gray-900 mr-2">4.3</span>
                                 Rating based on 779 Google Reviews
                             </div>
-                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-4">
+                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base px-2">
                                 Bubble tea and waffles are popular, fast service and friendly staff, good hangout vibe
                             </p>
                         </div>
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {reviews.map((review, idx) => (
                         <motion.div
                             key={idx}
@@ -65,22 +69,22 @@ export default function Trust() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
-                            className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-pink-100/50 transition-all duration-500"
+                            className="bg-white p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-pink-100/50 transition-all duration-500"
                         >
-                            <div className="mb-8 p-3 bg-pink-50 w-fit rounded-2xl group-hover:bg-pink-600 group-hover:text-white transition-colors duration-500">
-                                <Quote size={24} />
+                            <div className="mb-6 sm:mb-8 p-3 bg-pink-600 text-white w-fit rounded-2xl transition-colors duration-500">
+                                <Quote size={20} className="sm:w-6 sm:h-6" />
                             </div>
 
-                            <p className="text-lg text-gray-700 font-medium leading-[1.6] italic mb-10 flex-grow">
+                            <p className="text-base sm:text-lg text-gray-700 font-medium leading-[1.6] italic mb-8 sm:mb-10 flex-grow">
                                 "{review.text}"
                             </p>
 
-                            <div className="flex items-center gap-4 pt-6 border-t border-gray-50">
-                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center text-white font-bold shadow-lg shadow-pink-200">
+                            <div className="flex items-center gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-gray-50">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center text-white font-bold shadow-lg shadow-pink-200 text-sm sm:text-base">
                                     {review.initial}
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900">{review.author}</p>
+                                    <p className="font-bold text-gray-900 text-sm sm:text-base">{review.author}</p>
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Google Review</p>
                                 </div>
                             </div>

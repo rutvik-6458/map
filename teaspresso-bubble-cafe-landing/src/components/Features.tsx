@@ -53,24 +53,24 @@ export default function Features() {
     };
 
     return (
-        <section className="py-24 bg-white" id="features">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
+        <section className="py-16 sm:py-20 md:py-24 bg-white" id="features">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="text-center mb-12 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight px-2">
                             Why Choose Teaspresso
                         </h2>
-                        <p className="text-gray-600 text-lg font-medium max-w-2xl mx-auto">
+                        <p className="text-gray-600 text-base sm:text-lg font-medium max-w-2xl mx-auto px-2">
                             A popular bubble tea and waffle cafe in Vesu, Surat, loved by locals for its wide variety and customisable options.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {features.map((feature, idx) => {
                         const Icon = feature.icon;
                         return (
@@ -80,15 +80,15 @@ export default function Features() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-lg shadow-gray-100/50 flex flex-col group hover:shadow-2xl hover:shadow-pink-100/50 transition-all duration-500"
+                                className="bg-white p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 shadow-lg shadow-gray-100/50 flex flex-col group hover:shadow-2xl hover:shadow-pink-100/50 transition-all duration-500"
                             >
-                                <div className={`mb-6 p-4 w-fit rounded-2xl transition-colors duration-500 ${iconColors[feature.color as keyof typeof iconColors]}`}>
-                                    <Icon size={32} />
+                                <div className={`mb-5 sm:mb-6 p-3 sm:p-4 w-fit rounded-2xl transition-colors duration-500 ${iconColors[feature.color as keyof typeof iconColors]}`}>
+                                    <Icon size={28} className="sm:w-8 sm:h-8" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-600 font-medium leading-relaxed">
+                                <p className="text-gray-600 font-medium leading-relaxed text-sm sm:text-base">
                                     {feature.description}
                                 </p>
                             </motion.div>
