@@ -3,49 +3,49 @@ import { Star, Quote } from "lucide-react";
 
 export function Trust() {
   return (
-    <section id="reviews" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-1 mb-4 text-primary">
+    <section id="reviews" className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <div className="flex items-center justify-center gap-1 mb-3 sm:mb-4 text-primary">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-6 w-6 fill-current" />
+              <Star key={i} className="h-5 w-5 sm:h-6 sm:w-6 fill-current" />
             ))}
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-playfair mb-3 sm:mb-4">
             {businessData.social_proof.rating} Stars from {businessData.social_proof.review_count} Guests
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             Our customers love the taste, service and especially our cheesy comfort food.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {businessData.social_proof.testimonial_quotes.map((quote, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 relative hover:shadow-md transition-shadow"
+              className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-sm border border-border/50 relative hover:shadow-md transition-shadow"
             >
-              <Quote className="h-8 w-8 text-primary/10 absolute top-6 right-6" />
-              <p className="text-lg italic text-foreground leading-relaxed mb-6">
+              <Quote className="h-6 w-6 sm:h-8 sm:w-8 text-primary/10 absolute top-4 right-4 sm:top-6 sm:right-6" />
+              <p className="text-base sm:text-lg italic text-foreground leading-relaxed mb-4 sm:mb-6">
                 "{quote}"
               </p>
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm sm:text-base">
                   {String.fromCharCode(65 + index)}
                 </div>
                 <div>
-                  <p className="font-semibold text-sm">Happy Customer</p>
-                  <p className="text-xs text-muted-foreground">Local Guide</p>
+                  <p className="font-semibold text-xs sm:text-sm">Happy Customer</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">Local Guide</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-12">
+        <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-12 px-2">
           {businessData.social_proof.top_review_themes.map((theme, i) => (
-            <div key={i} className="flex items-center gap-3 px-6 py-3 bg-white rounded-full border border-border/50 text-sm font-medium shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-primary" />
+            <div key={i} className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-white rounded-full border border-border/50 text-xs sm:text-sm font-medium shadow-sm">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary shrink-0" />
               {theme}
             </div>
           ))}

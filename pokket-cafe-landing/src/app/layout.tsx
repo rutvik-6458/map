@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: `${businessData.brand.business_name} | ${businessData.brand.short_tagline_options[0]}`,
   description: businessData.content_blocks.about_paragraph,
   keywords: ["pokket cafe", "cafe in vesu", "best cafe surat", "cheese burst pizza", "budget cafe surat", "cafe atria"],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     title: businessData.brand.business_name,
     description: businessData.brand.short_tagline_options[0],

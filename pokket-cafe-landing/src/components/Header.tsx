@@ -70,41 +70,49 @@ export function Header() {
   };
 
   const whatsappNumber = businessData.contact.phone.replace(/\s+/g, '');
-  const hasGoogleMaps = businessData.contact.google_maps_link && businessData.contact.google_maps_link.trim() !== '';
-
-  // Generate Google Maps directions link from address
-  const directionsLink = hasGoogleMaps
-    ? businessData.contact.google_maps_link
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessData.contact.address)}`;
+  
+  // Direct Google Maps link for directions
+  const directionsLink = "https://maps.app.goo.gl/uDcWdmok6FTJ73g6A";
 
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
     )}>
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-4 flex items-center justify-between">
         <div
-          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer"
+          className={cn(
+            "text-lg sm:text-xl md:text-2xl font-bold font-playfair cursor-pointer transition-colors truncate max-w-[140px] sm:max-w-none",
+            isScrolled ? "text-primary" : "text-white "
+          )}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           {businessData.brand.business_name}
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
               className={cn(
-                "text-sm font-medium transition-all relative py-1",
-                activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                "text-xs lg:text-sm font-medium transition-all relative py-1 px-2 rounded-md",
+                isScrolled
+                  ? activeSection === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                  : activeSection === item.id
+                    ? "text-white bg-white/20 backdrop-blur-sm "
+                    : "text-white hover:text-white/90 bg-black/30 backdrop-blur-sm hover:bg-black/40 ",
+                ""
               )}
             >
               {item.label}
-              {activeSection === item.id && (
+              {activeSection === item.id && !isScrolled && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white rounded-full" />
+              )}
+              {activeSection === item.id && isScrolled && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full" />
               )}
             </button>
@@ -112,15 +120,15 @@ export function Header() {
         </nav>
 
         {/* CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild className="rounded-full">
+        <div className="hidden md:flex items-center gap-2 lg:gap-3">
+          <Button variant="outline" size="sm" asChild className="rounded-full text-xs lg:text-sm px-3 lg:px-4">
             <a href={directionsLink} target="_blank" rel="noopener noreferrer">
-              <MapPin className="mr-2 h-4 w-4" /> Directions
+              <MapPin className="mr-1.5 lg:mr-2 h-3.5 w-3.5 lg:h-4 lg:w-4" /> Directions
             </a>
           </Button>
-          <Button size="sm" asChild className="rounded-full shadow-lg shadow-primary/20">
+          <Button size="sm" asChild className="rounded-full shadow-lg shadow-primary/20 text-xs lg:text-sm px-3 lg:px-4">
             <a href={`tel:${whatsappNumber}`}>
-              <Phone className="mr-2 h-4 w-4" /> Call Now
+              <Phone className="mr-1.5 lg:mr-2 h-3.5 w-3.5 lg:h-4 lg:w-4" /> Call Now
             </a>
           </Button>
         </div>

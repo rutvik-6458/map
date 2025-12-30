@@ -63,16 +63,16 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-6">Gallery</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+    <section id="gallery" className="py-12 sm:py-16 md:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-playfair mb-4 sm:mb-6">Gallery</h2>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             A glimpse into the casual and friendly atmosphere of {businessData.brand.business_name}.
           </p>
         </div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
           {GALLERY_IMAGES.map((img, index) => (
             <div
               key={index}
@@ -94,10 +94,10 @@ export function Gallery() {
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 rounded-2xl"
               />
               {img.menuItem && (
-                <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
-                    <p className="text-sm font-semibold text-primary">Click to view in Menu</p>
-                    <p className="text-xs text-muted-foreground mt-1">{img.menuItem}</p>
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/95 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-lg shadow-lg">
+                    <p className="text-xs sm:text-sm font-semibold text-primary">Click to view in Menu</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">{img.menuItem}</p>
                   </div>
                 </div>
               )}
@@ -105,7 +105,7 @@ export function Gallery() {
           ))}
         </div>
 
-        <div className="mt-12 text-center text-sm text-muted-foreground italic">
+        <div className="mt-8 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground italic px-2">
           * Note: Replace these placeholder images with actual photos of {businessData.brand.business_name} interior and food.
         </div>
       </div>
