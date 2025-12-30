@@ -12,7 +12,7 @@ export const cafeData = {
   contact: {
     address: "3rd Floor, International Wealth Centre, 314, VIP Rd, Vesu, Surat, Gujarat 395007",
     phone: "082008 47893",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/UjwnyhPEk37MkTEd9",
     hours: "Open daily · Closes 12:00 am",
   },
   positioning: {

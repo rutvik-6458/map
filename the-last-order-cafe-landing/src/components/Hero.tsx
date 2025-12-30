@@ -45,7 +45,7 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          {/* <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             {hasPhone && (
               <Button
                 size="lg"
@@ -95,7 +95,7 @@ const Hero = () => {
                 WhatsApp
               </Button>
             )}
-          </div>
+          </div> */}
 
           <div className="pt-8">
             <p className="text-sm text-white/80 drop-shadow-md">

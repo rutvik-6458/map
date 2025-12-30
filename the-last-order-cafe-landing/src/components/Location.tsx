@@ -14,14 +14,13 @@ const Location = () => {
   const hasPhone = phone.length > 0;
   const hasGoogleMaps = cafeData.contact.google_maps_link.length > 0;
 
-  const getGoogleMapsEmbedUrl = (address: string) => {
-    const encoded = encodeURIComponent(address);
-    return `https://www.google.com/maps?q=${encoded}&output=embed`;
+  const getGoogleMapsEmbedUrl = () => {
+    const query = `${cafeData.brand.business_name}, ${cafeData.contact.address}`;
+    const encoded = encodeURIComponent(query);
+    return `https://www.google.com/maps?q=${encoded}&hl=en&z=17&output=embed`;
   };
 
-  const mapEmbedUrl = hasGoogleMaps && cafeData.contact.google_maps_link.includes("embed")
-    ? cafeData.contact.google_maps_link
-    : getGoogleMapsEmbedUrl(cafeData.contact.address);
+  const mapEmbedUrl = getGoogleMapsEmbedUrl();
 
   return (
     <section id="location" className="py-20 px-4 bg-gradient-to-b from-white to-stone-50">
