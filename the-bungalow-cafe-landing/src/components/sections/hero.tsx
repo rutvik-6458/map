@@ -6,7 +6,7 @@ import HeroImage from '@/assets/hero-main.avif'
 
 export default function Hero() {
     return (
-        <section id="hero" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
+        <section id="hero" className="relative h-screen min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/70 z-10" />
                 <Image
@@ -18,21 +18,21 @@ export default function Hero() {
                 />
             </div>
 
-            <div className="container relative z-20 text-center px-4 space-y-8 max-w-5xl mx-auto">
-                <div className="space-y-4">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-heading leading-[1.1] tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <div className="container relative z-20 text-center px-4 sm:px-6 space-y-6 sm:space-y-8 max-w-5xl mx-auto">
+                <div className="space-y-3 sm:space-y-4">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-heading leading-[1.1] tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 px-2">
                         {DATA.content_blocks.hero_headline_options[0]}
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-medium animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 px-2">
                         {DATA.content_blocks.hero_subheadline_options[0]}
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
-                    <Button size="lg" className="w-full sm:w-auto text-xl px-10 h-16 rounded-full shadow-2xl hover:scale-105 transition-all">
-                        View Menu <ArrowRight className="ml-2 h-6 w-6" />
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 pt-4 sm:pt-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400 px-4">
+                    <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 h-12 sm:h-14 md:h-16 rounded-full shadow-2xl hover:scale-105 transition-all">
+                        View Menu <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                     </Button>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-xl px-10 h-16 rounded-full bg-white/10 border-white/40 hover:bg-white/20 text-white backdrop-blur-md transition-all">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 h-12 sm:h-14 md:h-16 rounded-full bg-white/10 border-white/40 hover:bg-white/20 text-white backdrop-blur-md transition-all">
                         {DATA.content_blocks.cta_options[2]}
                     </Button>
                 </div>

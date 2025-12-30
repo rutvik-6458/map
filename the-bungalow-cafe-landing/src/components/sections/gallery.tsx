@@ -21,16 +21,18 @@ const images = [
 
 export default function Gallery() {
     return (
-        <section id="gallery" className="py-24 bg-white">
-            <div className="container px-4 mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-4 tracking-tight">Gallery</h2>
-                    <p className="text-muted-foreground text-lg">A glimpse into our aesthetic.</p>
+        <section id="gallery" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+            <div className="container px-4 sm:px-6 mx-auto">
+                <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-3 sm:mb-4 tracking-tight px-2">
+                        Gallery
+                    </h2>
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground px-2">A glimpse into our aesthetic.</p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                     {images.map((image, i) => (
-                        <div key={i} className="aspect-[4/5] bg-slate-100 rounded-2xl overflow-hidden relative group shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div key={i} className="aspect-[4/5] bg-slate-100 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative group shadow-sm hover:shadow-xl transition-all duration-500">
                             <Image
                                 src={image}
                                 alt={`Gallery image ${i + 1}`}
