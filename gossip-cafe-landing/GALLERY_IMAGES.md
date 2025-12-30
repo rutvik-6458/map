@@ -94,3 +94,4 @@ If you prefer to use the `src/assets/` folder instead:
 Note: Next.js Image component works better with `public/` folder for static assets, but both approaches work.
 
 
+

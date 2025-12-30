@@ -44,3 +44,4 @@ The Gallery component is already set up to use Next.js Image optimization - just
 
 
 
+
