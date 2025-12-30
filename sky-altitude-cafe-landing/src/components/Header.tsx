@@ -48,8 +48,7 @@ const Header = () => {
   const whatsappNumber = phoneNumber.replace(/\s/g, "");
   const whatsappLink = `https://wa.me/91${whatsappNumber}`;
   const telLink = `tel:+91${whatsappNumber}`;
-  const address = "6th Floor, Cannon Street 1, opposite Agam Arcade, Vesu, Surat, Gujarat 395007";
-  const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  const googleMapsLink = "https://maps.app.goo.gl/omzCGqxzbuG3J2Dm7";
 
   const navItems = [
     { id: "hero", label: "Home" },
@@ -64,80 +63,107 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+          : "bg-black/20 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+            className={`text-lg sm:text-xl md:text-2xl font-bold hover:scale-105 transition-transform ${
+              isScrolled
+                ? "bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent"
+                : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+            }`}
           >
             Sky Altitude
           </button>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-200 hover:text-orange-600 relative ${
-                  activeSection === item.id ? "text-orange-600" : "text-gray-700"
+                className={`text-sm font-medium transition-all duration-200 relative ${
+                  isScrolled
+                    ? activeSection === item.id
+                      ? "text-orange-600"
+                      : "text-gray-700 hover:text-orange-600"
+                    : activeSection === item.id
+                    ? "text-orange-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                    : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:text-orange-400"
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-600 rounded-full" />
+                  <span className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                    isScrolled ? "bg-orange-600" : "bg-orange-400"
+                  }`} />
                 )}
               </button>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             <Button
               variant="outline"
               size="sm"
-              className="border-orange-600 text-orange-600 hover:bg-orange-50"
+              className="border-orange-600 text-orange-600 hover:bg-orange-50 text-xs xl:text-sm px-2 xl:px-3"
               onClick={() => window.open(telLink, "_self")}
             >
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
+              <Phone className="w-3 h-3 xl:w-4 xl:h-4 mr-1 xl:mr-2" />
+              <span className="hidden xl:inline">Call Now</span>
+              <span className="xl:hidden">Call</span>
             </Button>
             {whatsappNumber && (
               <Button
                 variant="outline"
                 size="sm"
-                className="border-green-600 text-green-600 hover:bg-green-50"
+                className="border-green-600 text-green-600 hover:bg-green-50 text-xs xl:text-sm px-2 xl:px-3"
                 onClick={() => window.open(whatsappLink, "_blank")}
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
+                <MessageCircle className="w-3 h-3 xl:w-4 xl:h-4 mr-1 xl:mr-2" />
+                <span className="hidden xl:inline">WhatsApp</span>
+                <span className="xl:hidden">WA</span>
               </Button>
             )}
             <Button
               size="sm"
-              className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white"
+              className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white text-xs xl:text-sm px-2 xl:px-3"
               onClick={() => window.open(googleMapsLink, "_blank")}
             >
-              <Navigation className="w-4 h-4 mr-2" />
-              Directions
+              <Navigation className="w-3 h-3 xl:w-4 xl:h-4 mr-1 xl:mr-2" />
+              <span className="hidden xl:inline">Directions</span>
+              <span className="xl:hidden">Map</span>
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? "hover:bg-gray-100"
+                : "hover:bg-white/20"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                isScrolled
+                  ? "text-gray-700"
+                  : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              }`} />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                isScrolled
+                  ? "text-gray-700"
+                  : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              }`} />
             )}
           </button>
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
+          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <button

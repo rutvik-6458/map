@@ -16,19 +16,19 @@ const Gallery = () => {
   return (
     <section
       id="gallery"
-      className="py-16 px-4 bg-gradient-to-b from-orange-50 to-white"
+      className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
             Gallery
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Experience our beautiful rooftop ambience and delicious food
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
           {galleryImages.map((image) => (
             <Card
               key={image.id}
