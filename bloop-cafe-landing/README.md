@@ -144,3 +144,4 @@ Colors are defined in component files and can be customized by updating Tailwind
 - Gallery uses placeholder images - replace with actual photos per instructions above
 
 
+

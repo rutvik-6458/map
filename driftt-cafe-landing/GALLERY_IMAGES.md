@@ -74,3 +74,4 @@ Replace the placeholder divs in the Gallery component with:
 
 
 
+

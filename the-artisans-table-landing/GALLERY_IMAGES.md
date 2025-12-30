@@ -98,3 +98,4 @@ The gallery currently displays 6 placeholder images in a responsive grid:
 Each image has hover effects (scale and overlay) for better interactivity.
 
 
+

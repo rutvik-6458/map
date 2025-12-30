@@ -115,3 +115,4 @@ export default function Gallery() {
 If you have a hero image, you can also update `src/components/Hero.tsx` to use an actual image instead of the gradient background. Follow the same pattern as the Gallery component.
 
 
+

@@ -55,3 +55,4 @@ const galleryItems = [
 - File size: Optimize for web (< 500KB per image recommended)
 
 
+

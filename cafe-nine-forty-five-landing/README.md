@@ -101,3 +101,4 @@ All business data is centralized in `src/data.ts`. Update this file to change:
 - Gallery images need to be added to `src/assets/` directory
 
 
+
