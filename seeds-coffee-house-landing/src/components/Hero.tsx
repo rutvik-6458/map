@@ -38,61 +38,62 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 bg-amber-800/20 text-amber-200 px-4 py-2 rounded-full border border-amber-400/30 mb-8 font-bold text-sm tracking-widest uppercase">
-            <Star size={14} className="fill-amber-200" />
-            <span>4.7★ Rating • 87 Reviews</span>
+          <div className="inline-flex items-center gap-2 bg-amber-800/20 text-amber-200 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-amber-400/30 mb-6 sm:mb-8 font-bold text-xs sm:text-sm tracking-widest uppercase">
+            <Star size={12} className="sm:w-3.5 sm:h-3.5 fill-amber-200" />
+            <span className="whitespace-nowrap">4.7★ Rating • 87 Reviews</span>
           </div>
 
-          <h1 className="text-5xl md:text-8xl font-black text-white leading-tight mb-8 tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white leading-tight mb-6 sm:mb-8 tracking-tighter px-2">
             A Coffee House Built for True Coffee Lovers
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-medium px-4">
             Enjoy expertly brewed coffee made with premium beans. A calm, aesthetic cafe for meaningful conversations and quiet time.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4">
             {whatsappNumber && (
               <a
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <button className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center gap-3 transform hover:scale-105 active:scale-95 group">
-                  <MessageCircle size={24} />
-                  WhatsApp Us
+                <button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-base sm:text-lg lg:text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center justify-center gap-2 sm:gap-3 transform hover:scale-105 active:scale-95 group">
+                  <MessageCircle size={20} className="sm:w-6 sm:h-6" />
+                  <span>WhatsApp Us</span>
                   <ArrowRight
-                    size={20}
-                    className="group-hover:translate-x-1 transition-transform"
+                    size={18}
+                    className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                   />
                 </button>
               </a>
             )}
 
-            <a href="#location">
-              <button className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 transform hover:scale-105 active:scale-95">
-                <MapPin size={24} />
-                Visit Cafe
+            <a href="#location" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-base sm:text-lg lg:text-xl transition-all flex items-center justify-center gap-2 sm:gap-3 transform hover:scale-105 active:scale-95">
+                <MapPin size={20} className="sm:w-6 sm:h-6" />
+                <span>Visit Cafe</span>
               </button>
             </a>
           </div>
 
-          <div className="mt-20 flex flex-wrap justify-center gap-10 items-center opacity-80">
+          <div className="mt-12 sm:mt-16 lg:mt-20 flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10 items-center opacity-80 px-4">
             <div className="flex items-center gap-2 text-white/70">
               <div className="w-2 h-2 rounded-full bg-amber-300"></div>
-              <span className="font-bold text-sm uppercase tracking-widest">
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">
                 Premium Coffee Beans
               </span>
             </div>
             <div className="flex items-center gap-2 text-white/70">
               <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-              <span className="font-bold text-sm uppercase tracking-widest">
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">
                 Expert Baristas
               </span>
             </div>
             <div className="flex items-center gap-2 text-white/70">
               <div className="w-2 h-2 rounded-full bg-amber-500"></div>
-              <span className="font-bold text-sm uppercase tracking-widest">
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">
                 Open Till Midnight
               </span>
             </div>
