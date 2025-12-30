@@ -45,19 +45,19 @@ const Gallery = () => {
   return (
     <section
       id="gallery"
-      className="py-20 px-4 bg-gradient-to-b from-amber-50 to-white"
+      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-b from-amber-50 to-white"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             Gallery
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             Take a look at our cafe and signature items
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {galleryImages.map((image) => (
             <div
               key={image.id}

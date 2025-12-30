@@ -26,33 +26,33 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 px-4">
+    <footer className="bg-gray-900 text-gray-300 py-8 sm:py-10 md:py-12 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
               Rasta Street Cafe
             </h3>
-            <p className="text-gray-400 leading-relaxed mb-4">
+            <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-3 sm:mb-4">
               A casual neighborhood cafe in Vesu, Surat, serving coffee, hot
               chocolate, and street-style comfort food.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs sm:text-sm text-gray-500">
               Located at Ambrosia Business Hub on VIP Road
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
               Quick Links
             </h4>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => scrollToSection("hero")}
-                  className="text-gray-400 hover:text-amber-400 transition-colors"
+                  className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   Home
                 </button>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("menu")}
-                  className="text-gray-400 hover:text-amber-400 transition-colors"
+                  className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   Menu
                 </button>
@@ -68,7 +68,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("gallery")}
-                  className="text-gray-400 hover:text-amber-400 transition-colors"
+                  className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   Gallery
                 </button>
@@ -76,7 +76,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("faq")}
-                  className="text-gray-400 hover:text-amber-400 transition-colors"
+                  className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   FAQ
                 </button>
@@ -84,7 +84,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("location")}
-                  className="text-gray-400 hover:text-amber-400 transition-colors"
+                  className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   Location
                 </button>
@@ -93,25 +93,25 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-gray-400">
-                <span>📍</span>
-                <span className="text-sm">{address}</span>
+          <div className="sm:col-span-2 md:col-span-1">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Contact</h4>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex items-start gap-2 text-gray-400">
+                <span className="mt-0.5">📍</span>
+                <span className="text-xs sm:text-sm leading-relaxed">{address}</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <span>📞</span>
                 <a
                   href={telLink}
-                  className="text-sm hover:text-amber-400 transition-colors"
+                  className="text-xs sm:text-sm hover:text-amber-400 transition-colors"
                 >
                   {phoneNumber}
                 </a>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <span>🕐</span>
-                <span className="text-sm">Opens at 11:30 am</span>
+                <span className="text-xs sm:text-sm">Opens at 11:30 am</span>
               </div>
             </div>
           </div>
@@ -147,8 +147,8 @@ const Footer = () => {
         </div> */}
 
         {/* Copyright */}
-        <div className="text-center pt-8 border-t border-gray-800">
-          <p className="text-sm text-gray-500">
+        <div className="text-center pt-6 sm:pt-8 border-t border-gray-800">
+          <p className="text-xs sm:text-sm text-gray-500">
             © {new Date().getFullYear()} Rasta Street Cafe – VIP Road. All
             rights reserved.
           </p>

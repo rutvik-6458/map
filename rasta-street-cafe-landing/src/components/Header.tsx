@@ -13,7 +13,7 @@ const Header = () => {
   const phoneNumber = "09327639226";
   const telLink = `tel:+91${phoneNumber.replace(/\D/g, "")}`;
   const whatsappLink = `https://wa.me/91${phoneNumber.replace(/\D/g, "")}`;
-  const googleMapsLink = ""; // Empty as per JSON data
+  const googleMapsLink = "https://maps.app.goo.gl/4rpMbYCdKJdmsHWu9";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,67 +83,88 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+          : "bg-black/30 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+            className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
           >
             Rasta Street Cafe
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-200 hover:text-amber-600 relative ${
-                  activeSection === item.id ? "text-amber-600" : "text-gray-700"
+                className={`text-xs md:text-sm font-medium transition-all duration-200 hover:text-amber-400 relative ${
+                  activeSection === item.id
+                    ? "text-amber-400"
+                    : isScrolled
+                      ? "text-gray-700"
+                      : "text-white drop-shadow-md"
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-600 rounded-full" />
+                  <span
+                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                      isScrolled ? "bg-amber-600" : "bg-amber-400"
+                    }`}
+                  />
                 )}
               </button>
             ))}
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             <Button
               variant="outline"
               size="sm"
-              className="border-amber-600 text-amber-600 hover:bg-amber-50"
+              className={`text-xs xl:text-sm ${
+                isScrolled
+                  ? "border-amber-600 text-amber-600 hover:bg-amber-50"
+                  : "border-white text-white hover:bg-white/20 bg-white/10 backdrop-blur-sm"
+              }`}
               onClick={() => window.open(telLink, "_self")}
             >
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
+              <Phone className="w-3 h-3 xl:w-4 xl:h-4 mr-1.5 xl:mr-2" />
+              <span className="hidden xl:inline">Call Now</span>
+              <span className="xl:hidden">Call</span>
             </Button>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white"
+              className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white shadow-lg text-xs xl:text-sm"
               onClick={handleDirections}
             >
-              <Navigation className="w-4 h-4 mr-2" />
+              <Navigation className="w-3 h-3 xl:w-4 xl:h-4 mr-1.5 xl:mr-2" />
               Directions
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? "hover:bg-gray-100"
+                : "hover:bg-white/20 text-white"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X
+                className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`}
+              />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu
+                className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`}
+              />
             )}
           </button>
         </div>
