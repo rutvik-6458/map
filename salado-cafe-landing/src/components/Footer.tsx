@@ -21,18 +21,18 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 px-4">
+        <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12 sm:py-16 px-4">
             <div className="container mx-auto max-w-6xl">
-                <div className="grid md:grid-cols-3 gap-12 mb-12">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
                     {/* Brand Section */}
-                    <div>
-                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                    <div className="sm:col-span-2 md:col-span-1">
+                        <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                             SaladO Cafe
                         </h3>
-                        <p className="text-gray-300 leading-relaxed mb-4">
+                        <p className="text-gray-300 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                             Healthy Bites Made Delicious. Fresh, nutritious and flavorful cafe in Vesu, Surat.
                         </p>
-                        <div className="flex items-center gap-2 text-gray-400">
+                        <div className="flex items-center gap-2 text-gray-400 text-sm sm:text-base">
                             <span>⭐</span>
                             <span className="font-semibold text-white">4.8</span>
                             <span>•</span>
@@ -111,7 +111,7 @@ const Footer = () => {
                         </ul>
 
                         {/* Social Links */}
-                        <div className="flex gap-3 mt-6">
+                        {/* <div className="flex gap-3 mt-6">
                             <button
                                 onClick={() => window.open(`tel:${formattedPhone}`, "_self")}
                                 className="bg-green-600 hover:bg-green-700 p-3 rounded-lg transition-colors"
@@ -136,13 +136,13 @@ const Footer = () => {
                             >
                                 <Navigation className="w-5 h-5" />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
-                    <p>
+                <div className="border-t border-gray-700 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm px-4">
+                    <p className="break-words">
                         © {new Date().getFullYear()} SaladO Cafe. All rights reserved. | Vesu, Surat, Gujarat
                     </p>
                 </div>

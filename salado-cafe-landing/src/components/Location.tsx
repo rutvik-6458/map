@@ -8,7 +8,7 @@ const Location = () => {
     const phoneNumber = "08347552200";
     const formattedPhone = `+91${phoneNumber.replace(/\s/g, "")}`;
     const whatsappNumber = formattedPhone;
-    const googleMapsLink = ""; // Empty as per JSON data
+    const googleMapsLink = "https://maps.app.goo.gl/9CBgVYsT1sr36L1N6";
     const hours = "Open daily, closes at 12 am";
 
     // Google Maps embed URL using the address - works without API key
@@ -17,23 +17,23 @@ const Location = () => {
         : `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.5!2d72.8311!3d21.1702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEwJzEyLjciTiA3MsKwNDknNTIuMCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin&q=${encodeURIComponent(address)}`;
 
     return (
-        <section id="location" className="py-20 px-4 bg-gradient-to-b from-green-50 to-white">
+        <section id="location" className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-green-50 to-white">
             <div className="container mx-auto max-w-6xl">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                <div className="text-center mb-10 sm:mb-12 md:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
                         Visit <span className="text-green-600">Us</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
                         Find us in Vesu, Surat
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
                     {/* Address & Info */}
-                    <div className="space-y-6">
-                        <div className="bg-white border border-green-200 rounded-xl p-8 shadow-sm">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Location Details</h3>
+                    <div className="space-y-4 sm:space-y-6">
+                        <div className="bg-white border border-green-200 rounded-xl p-4 sm:p-6 md:p-8 shadow-sm">
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Location Details</h3>
 
                             <div className="space-y-4">
                                 <div className="flex items-start gap-4">
@@ -78,8 +78,7 @@ const Location = () => {
                                 variant="outline"
                                 className="w-full border-green-600 text-green-600 hover:bg-green-50"
                                 onClick={() => {
-                                    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-                                    window.open(mapsUrl, "_blank");
+                                    window.open(googleMapsLink, "_blank");
                                 }}
                             >
                                 <Navigation className="w-5 h-5 mr-2" />
@@ -101,10 +100,10 @@ const Location = () => {
                     {/* Map Embed */}
                     <div className="bg-white border border-green-200 rounded-xl overflow-hidden shadow-sm">
                         <iframe
-                            src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.5!2d72.8311!3d21.1702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEwJzEyLjciTiA3MsKwNDknNTIuMCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin&q=SaladO+Cafe,+G5+Ground+Floor+Cannon+Street+opposite+Aagam+Shopping+Center+near+Jolly+Residency+Vesu+Surat+Gujarat+395007"
                             width="100%"
-                            height="500"
-                            style={{ border: 0 }}
+                            height="400"
+                            style={{ border: 0, minHeight: '300px' }}
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"

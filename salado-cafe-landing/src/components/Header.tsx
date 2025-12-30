@@ -12,7 +12,7 @@ const Header = () => {
     const phoneNumber = "08347552200";
     const formattedPhone = `+91${phoneNumber.replace(/\s/g, "")}`;
     const whatsappNumber = formattedPhone;
-    const googleMapsLink = ""; // Empty as per JSON data
+    const googleMapsLink = "https://maps.app.goo.gl/9CBgVYsT1sr36L1N6";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -66,12 +66,12 @@ const Header = () => {
                     : "bg-transparent"
             }`}
         >
-            <div className="container mx-auto px-4 py-4">
+            <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <button
                         onClick={() => scrollToSection("hero")}
-                        className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+                        className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
                     >
                         SaladO Cafe
                     </button>
@@ -82,8 +82,14 @@ const Header = () => {
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className={`text-sm font-medium transition-all duration-200 hover:text-green-600 relative ${
-                                    activeSection === item.id ? "text-green-600" : "text-gray-700"
+                                className={`text-sm font-medium transition-all duration-200 relative ${
+                                    isScrolled
+                                        ? activeSection === item.id
+                                            ? "text-green-600"
+                                            : "text-gray-700"
+                                        : activeSection === item.id
+                                            ? "text-green-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                                            : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:text-green-300"
                                 }`}
                             >
                                 {item.label}
@@ -128,13 +134,29 @@ const Header = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                        className={`md:hidden p-2 rounded-lg transition-colors ${
+                            isScrolled
+                                ? "hover:bg-gray-100"
+                                : "hover:bg-white/20 backdrop-blur-sm"
+                        }`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <X className="w-6 h-6 text-gray-700" />
+                            <X
+                                className={`w-6 h-6 ${
+                                    isScrolled
+                                        ? "text-gray-700"
+                                        : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                                }`}
+                            />
                         ) : (
-                            <Menu className="w-6 h-6 text-gray-700" />
+                            <Menu
+                                className={`w-6 h-6 ${
+                                    isScrolled
+                                        ? "text-gray-700"
+                                        : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                                }`}
+                            />
                         )}
                     </button>
                 </div>

@@ -23,7 +23,7 @@ const Hero = () => {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 overflow-hidden"
         >
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
@@ -36,53 +36,53 @@ const Hero = () => {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute top-32 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-2xl">
+            <div className="absolute top-20 sm:top-24 md:top-32 left-1/2 -translate-x-1/2 z-20 animate-bounce w-[calc(100%-2rem)] max-w-[92%] sm:max-w-none sm:w-auto">
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold shadow-2xl text-center whitespace-nowrap mx-auto leading-tight">
                     ✨ Healthy Bites Made Delicious
                 </div>
             </div>
 
             {/* Content */}
-            <div className="relative z-20 max-w-4xl mx-auto text-center">
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+            <div className="relative z-20 max-w-4xl mx-auto text-center px-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-lg">
                     Eat Healthy Without
                     <span className="block bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mt-2">
                         Compromising Taste
                     </span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
                     Enjoy wholesome salads, wraps and healthy bowls made fresh. Perfect place for clean eating and balanced meals.
                 </p>
 
                 {/* Rating Badge */}
-                <div className="flex items-center justify-center gap-2 mb-10">
-                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-6 py-3 flex items-center gap-3 shadow-lg">
-                        <div className="flex items-center gap-1">
+                <div className="flex items-center justify-center gap-2 mb-6 sm:mb-10 px-4">
+                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-4 py-2 sm:px-6 sm:py-3 flex items-center gap-2 sm:gap-3 shadow-lg">
+                        <div className="flex items-center gap-0.5 sm:gap-1">
                             {[...Array(5)].map((_, i) => (
                                 <svg
                                     key={i}
-                                    className="w-5 h-5 text-green-500 fill-current"
+                                    className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 fill-current"
                                     viewBox="0 0 20 20"
                                 >
                                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                                 </svg>
                             ))}
                         </div>
-                        <span className="text-gray-900 font-semibold">4.8</span>
-                        <span className="text-gray-400">•</span>
-                        <span className="text-gray-600">62 reviews</span>
+                        <span className="text-gray-900 font-semibold text-sm sm:text-base">4.8</span>
+                        <span className="text-gray-400 hidden sm:inline">•</span>
+                        <span className="text-gray-600 text-xs sm:text-sm">62 reviews</span>
                     </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
                     <Button
                         size="lg"
-                        className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 text-lg shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105"
+                        className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         onClick={() => window.open(`tel:${formattedPhone}`, "_self")}
                     >
-                        <Phone className="w-5 h-5 mr-2" />
+                        <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                         Call Now
                     </Button>
 
@@ -90,20 +90,20 @@ const Hero = () => {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="bg-white/90 backdrop-blur-md border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-6 text-lg shadow-2xl transition-all duration-300 hover:scale-105"
+                            className="bg-white/90 backdrop-blur-md border-2 border-green-600 text-green-700 hover:bg-green-50 px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                             onClick={() => window.open(googleMapsLink, "_blank")}
                         >
-                            <Navigation className="w-5 h-5 mr-2" />
+                            <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                             Get Directions
                         </Button>
                     ) : (
                         <Button
                             size="lg"
                             variant="outline"
-                            className="bg-white/90 backdrop-blur-md border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-6 text-lg shadow-2xl transition-all duration-300 hover:scale-105"
+                            className="bg-white/90 backdrop-blur-md border-2 border-green-600 text-green-700 hover:bg-green-50 px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                             onClick={() => scrollToSection("location")}
                         >
-                            <Navigation className="w-5 h-5 mr-2" />
+                            <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                             Get Directions
                         </Button>
                     )}
@@ -111,23 +111,23 @@ const Hero = () => {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="bg-green-600/90 backdrop-blur-md border-2 border-green-500 text-white hover:bg-green-700 px-8 py-6 text-lg shadow-2xl transition-all duration-300 hover:scale-105"
+                        className="bg-green-600/90 backdrop-blur-md border-2 border-green-500 text-white hover:bg-green-700 px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         onClick={() => window.open(`https://wa.me/${whatsappNumber}`, "_blank")}
                     >
-                        <MessageCircle className="w-5 h-5 mr-2" />
+                        <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                         WhatsApp
                     </Button>
                 </div>
 
                 {/* Info Pills */}
-                <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-5 py-2 text-gray-700 text-sm shadow-md">
+                <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-4">
+                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-3 py-1.5 sm:px-5 sm:py-2 text-gray-700 text-xs sm:text-sm shadow-md">
                         📍 Vesu, Surat
                     </div>
-                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-5 py-2 text-gray-700 text-sm shadow-md">
+                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-3 py-1.5 sm:px-5 sm:py-2 text-gray-700 text-xs sm:text-sm shadow-md">
                         🕐 Open daily, closes at 12 am
                     </div>
-                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-5 py-2 text-gray-700 text-sm shadow-md">
+                    <div className="bg-white/90 backdrop-blur-md border border-green-200 rounded-full px-3 py-1.5 sm:px-5 sm:py-2 text-gray-700 text-xs sm:text-sm shadow-md">
                         🚗 Drive-through available
                     </div>
                 </div>

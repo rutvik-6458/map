@@ -19,20 +19,20 @@ const Gallery = () => {
     ];
 
     return (
-        <section id="gallery" className="py-20 px-4 bg-gradient-to-b from-white to-green-50">
+        <section id="gallery" className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-white to-green-50">
             <div className="container mx-auto max-w-6xl">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                <div className="text-center mb-10 sm:mb-12 md:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
                         Our <span className="text-green-600">Gallery</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
                         See what makes SaladO Cafe special
                     </p>
                 </div>
 
                 {/* Gallery Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {galleryImages.map((image) => (
                         <div
                             key={image.id}
