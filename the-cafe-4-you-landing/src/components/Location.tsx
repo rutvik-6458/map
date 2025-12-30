@@ -9,6 +9,7 @@ export function Location() {
   const phoneNumber = businessData.contact.phone;
   const whatsappNumber = phoneNumber ? phoneNumber.replace(/\s+/g, '') : '';
   const googleMapsLink = businessData.contact.google_maps_link || "";
+  const googleMapsEmbedLink = (businessData.contact as any).google_maps_embed_link || "";
 
   const directionsLink = googleMapsLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
@@ -94,7 +95,19 @@ export function Location() {
           </div>
 
           <div className="bg-gray-200 rounded-2xl overflow-hidden border border-gray-300 aspect-[4/3] flex items-center justify-center">
-            {googleMapsLink ? (
+            {googleMapsEmbedLink ? (
+              <iframe
+                src={googleMapsEmbedLink}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+                title="The Cafe 4 You Location"
+              ></iframe>
+            ) : googleMapsLink && (googleMapsLink.includes("/embed/") || googleMapsLink.includes("/dir/")) ? (
               <iframe
                 src={
                   googleMapsLink.includes("/embed/")

@@ -18,10 +18,10 @@ export function Features() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-6 md:mb-8 leading-tight">
               Everything You Love About <span className="text-primary">A Great Cafe</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 leading-relaxed">
               {businessData.content_blocks.about_paragraph}
             </p>
 
@@ -47,7 +47,7 @@ export function Features() {
             <img
               src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop"
               alt="Cafe Interior"
-              className="relative z-10 w-full h-[500px] object-cover rounded-[2rem] shadow-2xl"
+              className="relative z-10 w-full h-[300px] md:h-[500px] object-cover rounded-[2rem] shadow-2xl"
             />
             <div className="absolute -bottom-8 -left-8 z-20 bg-white p-8 rounded-2xl shadow-xl max-w-xs hidden md:block border border-border/50">
               <p className="text-primary font-bold text-lg mb-2">Unique Selling Points</p>

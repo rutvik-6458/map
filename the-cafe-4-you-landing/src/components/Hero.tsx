@@ -19,7 +19,7 @@ export function Hero() {
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0  from-amber-900/80 via-amber-800/70 to-orange-700/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/70 z-10" />
         <img
           src={typeof heroImage === 'string' ? heroImage : heroImage.src}
           alt="The Cafe 4 You Ambience"
@@ -32,7 +32,7 @@ export function Hero() {
           {businessData.brand.short_tagline_options[0]}
         </div>
 
-        <h1 className="text-4xl md:text-7xl font-bold font-playfair mb-6 max-w-4xl mx-auto leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000">
+        <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold font-playfair mb-6 max-w-4xl mx-auto leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000">
           {headline}
         </h1>
 

@@ -12,7 +12,8 @@ export const businessData = {
   "contact": {
     "address": "Shop No 3, Happy Home Building, Shantiniketan Cross, near SD Jain School, Vesu, Surat, Gujarat 395007",
     "phone": "090992 62723",
-    "google_maps_link": "",
+    "google_maps_link": "https://maps.app.goo.gl/fcPadNLB7QW4Qbnq9",
+    "google_maps_embed_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7442.333629893425!2d72.76653514234573!3d21.14575867213187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d12677de1f9%3A0x8e6baac66e9f2fd6!2sThe%20Cafe%204%20You!5e0!3m2!1sen!2sin!4v1767089952361!5m2!1sen!2sin",
     "hours": "Open daily · Closes 11:30 pm"
   },
   "positioning": {

@@ -79,12 +79,18 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+      (isScrolled || mobileMenuOpen) ? "bg-white/95 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div
-          className="text-xl md:text-2xl font-bold font-playfair text-primary cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className={cn(
+            "text-xl md:text-2xl font-bold font-playfair cursor-pointer transition-colors",
+            (isScrolled || mobileMenuOpen) ? "text-primary" : "text-white drop-shadow-sm"
+          )}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setMobileMenuOpen(false);
+          }}
         >
           {businessData.brand.business_name}
         </div>
@@ -98,13 +104,16 @@ export function Header() {
               className={cn(
                 "text-sm font-medium transition-all relative py-1",
                 activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                  ? (isScrolled ? "text-primary" : "text-white drop-shadow-md")
+                  : (isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white drop-shadow-sm")
               )}
             >
               {item.label}
               {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full" />
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-full h-0.5 rounded-full transition-colors",
+                  isScrolled ? "bg-primary" : "bg-white"
+                )} />
               )}
             </button>
           ))}
@@ -134,27 +143,33 @@ export function Header() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-2 md:hidden">
-          <Button size="sm" variant="ghost" asChild className="p-2">
+        <div className="flex items-center gap-1 md:gap-2 md:hidden">
+          <Button size="sm" variant="ghost" asChild className={cn("p-2", !(isScrolled || mobileMenuOpen) && "hover:bg-white/10")}>
             <a href={directionsLink} target="_blank" rel="noopener noreferrer">
-              <MapPin className="h-5 w-5 text-primary" />
+              <MapPin className={cn("h-5 w-5", (isScrolled || mobileMenuOpen) ? "text-primary" : "text-white")} />
             </a>
           </Button>
           {phoneNumber && (
-            <Button size="sm" variant="ghost" asChild className="p-2">
+            <Button size="sm" variant="ghost" asChild className={cn("p-2", !(isScrolled || mobileMenuOpen) && "hover:bg-white/10")}>
               <a href={`tel:${phoneNumber}`}>
-                <Phone className="h-5 w-5 text-primary" />
+                <Phone className={cn("h-5 w-5", (isScrolled || mobileMenuOpen) ? "text-primary" : "text-white")} />
               </a>
             </Button>
           )}
           {whatsappNumber && (
-            <Button size="sm" variant="ghost" asChild className="p-2">
+            <Button size="sm" variant="ghost" asChild className={cn("p-2", !(isScrolled || mobileMenuOpen) && "hover:bg-white/10")}>
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 text-primary" />
+                <MessageCircle className={cn("h-5 w-5", (isScrolled || mobileMenuOpen) ? "text-primary" : "text-white")} />
               </a>
             </Button>
           )}
-          <button className="p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button
+            className={cn(
+              "p-2 transition-colors",
+              !(isScrolled || mobileMenuOpen) ? "text-white" : "text-foreground"
+            )}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
