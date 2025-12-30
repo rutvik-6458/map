@@ -14,52 +14,54 @@ const Location = () => {
   const hasPhone = phone.length > 0;
   const hasGoogleMaps = cafeData.contact.google_maps_link.length > 0;
 
-  const getGoogleMapsEmbedUrl = (address: string) => {
-    const encoded = encodeURIComponent(address);
+  const getGoogleMapsEmbedUrl = () => {
+    // Use business name with address for more accurate location
+    const query = `${cafeData.brand.business_name}, ${cafeData.contact.address}`;
+    const encoded = encodeURIComponent(query);
     return `https://www.google.com/maps?q=${encoded}&output=embed`;
   };
 
   const mapEmbedUrl = hasGoogleMaps && cafeData.contact.google_maps_link.includes("embed")
     ? cafeData.contact.google_maps_link
-    : getGoogleMapsEmbedUrl(cafeData.contact.address);
+    : getGoogleMapsEmbedUrl();
 
   return (
-    <section id="location" className="py-20 px-4 bg-gradient-to-b from-white to-stone-50">
+    <section id="location" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-b from-white to-stone-50">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-900 mb-3 sm:mb-4 px-2">
             Visit Us
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-base sm:text-lg text-stone-600 px-4">
             We&apos;re located in the heart of {cafeData.brand.city_area}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-md border border-stone-100">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-amber-100 rounded-lg">
-                  <MapPin className="w-6 h-6 text-amber-700" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="space-y-4 sm:space-y-6 order-2 lg:order-1">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-stone-100">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-amber-100 rounded-lg shrink-0">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-amber-900 mb-2">Address</h3>
-                  <p className="text-stone-700">{cafeData.contact.address}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-sm sm:text-base text-amber-900 mb-2">Address</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-stone-700 break-words">{cafeData.contact.address}</p>
                 </div>
               </div>
             </div>
 
             {hasPhone && (
-              <div className="bg-white p-6 rounded-xl shadow-md border border-stone-100">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 bg-amber-100 rounded-lg">
-                    <Phone className="w-6 h-6 text-amber-700" />
+              <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-stone-100">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="p-2 sm:p-3 bg-amber-100 rounded-lg shrink-0">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-amber-900 mb-2">Phone</h3>
+                    <h3 className="font-semibold text-sm sm:text-base text-amber-900 mb-2">Phone</h3>
                     <a
                       href={`tel:${phone}`}
-                      className="text-amber-700 hover:text-amber-800 font-medium"
+                      className="text-sm sm:text-base text-amber-700 hover:text-amber-800 font-medium"
                     >
                       {cafeData.contact.phone}
                     </a>
@@ -68,14 +70,14 @@ const Location = () => {
               </div>
             )}
 
-            <div className="bg-white p-6 rounded-xl shadow-md border border-stone-100">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-amber-100 rounded-lg">
-                  <Clock className="w-6 h-6 text-amber-700" />
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-stone-100">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-amber-100 rounded-lg shrink-0">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-amber-900 mb-2">Hours</h3>
-                  <p className="text-stone-700">{cafeData.contact.hours}</p>
+                  <h3 className="font-semibold text-sm sm:text-base text-amber-900 mb-2">Hours</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-stone-700">{cafeData.contact.hours}</p>
                 </div>
               </div>
             </div>
@@ -83,16 +85,16 @@ const Location = () => {
             {hasGoogleMaps ? (
               <Button
                 size="lg"
-                className="w-full bg-gradient-to-r from-amber-800 to-amber-700 hover:from-amber-900 hover:to-amber-800 text-white"
+                className="w-full bg-gradient-to-r from-amber-800 to-amber-700 hover:from-amber-900 hover:to-amber-800 text-white text-sm sm:text-base"
                 onClick={() => window.open(cafeData.contact.google_maps_link, "_blank")}
               >
-                <Navigation className="w-5 h-5 mr-2" />
+                <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Open in Google Maps
               </Button>
             ) : (
               <Button
                 size="lg"
-                className="w-full bg-gradient-to-r from-amber-800 to-amber-700 hover:from-amber-900 hover:to-amber-800 text-white"
+                className="w-full bg-gradient-to-r from-amber-800 to-amber-700 hover:from-amber-900 hover:to-amber-800 text-white text-sm sm:text-base"
                 onClick={() => {
                   const query = encodeURIComponent(cafeData.contact.address);
                   window.open(
@@ -101,14 +103,14 @@ const Location = () => {
                   );
                 }}
               >
-                <Navigation className="w-5 h-5 mr-2" />
+                <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Get Directions
               </Button>
             )}
           </div>
 
-          <div className="bg-white rounded-xl shadow-md border border-stone-100 overflow-hidden">
-            <div className="aspect-square bg-stone-200 relative">
+          <div className="bg-white rounded-xl shadow-md border border-stone-100 overflow-hidden order-1 lg:order-2">
+            <div className="aspect-square sm:aspect-[4/3] lg:aspect-square bg-stone-200 relative min-h-[300px] sm:min-h-[400px]">
               <iframe
                 src={mapEmbedUrl}
                 width="100%"

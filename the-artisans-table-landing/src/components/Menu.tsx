@@ -33,18 +33,18 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className="py-20 px-4 bg-white">
+    <section id="menu" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-900 mb-3 sm:mb-4 px-2">
             Our Signature Offerings
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-base sm:text-lg text-stone-600 px-4">
             Discover our most loved specialties and services
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {cafeData.positioning.signature_items_or_services.map(
             (item, index) => {
               const Icon = getIcon(item);
@@ -53,18 +53,18 @@ const Menu = () => {
                   key={index}
                   className="hover:shadow-lg transition-shadow border-amber-100"
                 >
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-amber-100 rounded-lg">
-                        <Icon className="w-5 h-5 text-amber-700" />
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="p-2 bg-amber-100 rounded-lg shrink-0">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700" />
                       </div>
-                      <CardTitle className="text-xl text-amber-900">
+                      <CardTitle className="text-lg sm:text-xl text-amber-900">
                         {item}
                       </CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-stone-600">
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <p className="text-sm sm:text-base text-stone-600">
                       {getDescription(item)}
                     </p>
                   </CardContent>
@@ -74,16 +74,16 @@ const Menu = () => {
           )}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-block bg-amber-50 border border-amber-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-amber-900 mb-2">
+        <div className="mt-8 sm:mt-10 md:mt-12 text-center px-4">
+          <div className="inline-block bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-6 w-full max-w-3xl">
+            <h3 className="text-lg sm:text-xl font-semibold text-amber-900 mb-3 sm:mb-4">
               What Makes Us Special
             </h3>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {cafeData.positioning.unique_selling_points.map((usp, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-white text-amber-800 rounded-full text-sm font-medium shadow-sm"
+                  className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-amber-800 rounded-full text-xs sm:text-sm font-medium shadow-sm"
                 >
                   {usp}
                 </span>

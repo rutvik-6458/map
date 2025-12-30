@@ -12,7 +12,7 @@ export const cafeData = {
   contact: {
     address: "b/s CB Patel Health Club, 212, International Wealth Center, Surana, VIP Rd, Vesu, Surat, Gujarat 395007",
     phone: "091733 29529",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/vTyE3REtsFZHpaqk7",
     hours: "Open · Closes 1:00 am"
   },
   positioning: {
