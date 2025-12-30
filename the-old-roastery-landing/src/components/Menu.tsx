@@ -12,10 +12,10 @@ export function Menu() {
 
     return (
         <section className="py-24 bg-secondary/10" id="menu">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <Badge variant="outline" className="mb-4 px-4 py-1 border-primary text-primary font-bold">Signature Items</Badge>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Best Sellers</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Best Sellers</h2>
                     <p className="text-muted-foreground max-w-lg mx-auto italic">Handcrafted with premium ingredients for the perfect taste.</p>
                 </div>
 

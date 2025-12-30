@@ -4,7 +4,7 @@ import { BUSINESS_DATA } from "@/data";
 export function Trust() {
     return (
         <section className="py-12 border-y bg-background">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <div className="text-center lg:text-left">
                         <div className="flex items-center justify-center lg:justify-start gap-1 text-accent mb-2">

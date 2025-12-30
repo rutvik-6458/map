@@ -6,7 +6,7 @@ import heroImg from "@/assets/roastery-lucknow5806-1024x683.webp";
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 md:pt-20 overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -19,16 +19,16 @@ export function Hero() {
                 <div className="absolute inset-0 bg-black/60" />
             </div>
 
-            <div className="container mx-auto px-4 text-center relative z-10 text-white">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-widest mb-8 border border-white/20">
+            <div className="container mx-auto px-6 text-center relative z-10 text-white">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8 border border-white/20">
                     {BUSINESS_DATA.brand.category} & Aesthetic Space
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-tight max-w-5xl mx-auto drop-shadow-2xl">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 leading-[1.1] tracking-tight max-w-5xl mx-auto drop-shadow-2xl">
                     {BUSINESS_DATA.content_blocks.hero_headline}
                 </h1>
 
-                <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-medium drop-shadow-lg leading-relaxed">
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-2xl md:max-w-3xl mx-auto font-medium drop-shadow-lg leading-relaxed">
                     {BUSINESS_DATA.content_blocks.hero_subheadline}
                 </p>
 

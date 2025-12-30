@@ -12,7 +12,7 @@ export const BUSINESS_DATA = {
     contact: {
         address: "Vacanza Trade Center, 20-21-22, near BB Club Circle, Vesu, Surat, Gujarat 395007",
         phone: "075750 29779",
-        google_maps_link: "https://www.google.com/maps/dir//The+Old+Roastery+Vacanza+Trade+Center+Vesu+Surat",
+        google_maps_link: "https://maps.app.goo.gl/7DnhA5z3gqR9KMks9",
         hours: "Open daily, closes at 1 am",
         whatsapp: "917575029779"
     },
