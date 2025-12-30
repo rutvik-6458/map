@@ -12,7 +12,7 @@ export const cafeData = {
   contact: {
     address: "8, Dimple Row House, Gymkhana Rd, Piplod, Surat, Gujarat 395007",
     phone: "087993 70091",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/Kzhs1chor8TFoLqU8",
     hours: "Open · Closes 11:00 pm",
   },
   positioning: {

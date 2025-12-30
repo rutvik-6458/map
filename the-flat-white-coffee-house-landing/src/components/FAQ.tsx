@@ -13,38 +13,38 @@ export default function FAQ() {
     return (
         <section className="py-24 bg-gray-50/30" id="faq">
             <div className="max-w-4xl mx-auto px-4">
-                <div className="text-center mb-16">
-                    <div className="inline-flex p-3 bg-amber-100 text-amber-700 rounded-2xl mb-6">
-                        <HelpCircle size={28} />
+                <div className="text-center mb-12 sm:mb-16">
+                    <div className="inline-flex p-3 bg-amber-100 text-amber-700 rounded-2xl mb-4 sm:mb-6">
+                        <HelpCircle size={24} className="sm:w-7 sm:h-7" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Common Questions</h2>
-                    <p className="text-gray-500 font-medium">Everything you need to know about {cafeData.brand.business_name}</p>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight px-4">Common Questions</h2>
+                    <p className="text-gray-500 font-medium text-sm sm:text-base px-4">Everything you need to know about {cafeData.brand.business_name}</p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                     {faqs.map((faq, idx) => (
                         <div
                             key={idx}
                             className={cn(
-                                "bg-white rounded-[2rem] border transition-all duration-300 overflow-hidden shadow-sm",
+                                "bg-white rounded-[1.5rem] sm:rounded-[2.5rem] border transition-all duration-300 overflow-hidden shadow-sm mx-4 sm:mx-0",
                                 openIdx === idx ? "border-amber-200 shadow-xl shadow-amber-100/50" : "border-gray-100"
                             )}
                         >
                             <button
                                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                                className="w-full text-left p-8 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors group"
+                                className="w-full text-left p-6 sm:p-8 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors group gap-4"
                             >
                                 <span className={cn(
-                                    "text-xl font-bold transition-colors",
+                                    "text-lg sm:text-xl font-bold transition-colors leading-snug",
                                     openIdx === idx ? "text-amber-700" : "text-gray-800 group-hover:text-amber-700"
                                 )}>
                                     {faq.q}
                                 </span>
                                 <div className={cn(
-                                    "p-2 rounded-xl transition-all",
+                                    "p-1.5 sm:p-2 rounded-xl transition-all flex-shrink-0",
                                     openIdx === idx ? "bg-amber-800 text-white rotate-180" : "bg-gray-100 text-gray-500"
                                 )}>
-                                    <ChevronDown size={20} />
+                                    <ChevronDown size={18} className="sm:w-5 sm:h-5" />
                                 </div>
                             </button>
                             <AnimatePresence>
@@ -55,8 +55,8 @@ export default function FAQ() {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
-                                        <div className="px-8 pb-8 text-gray-600 text-lg leading-relaxed font-medium">
-                                            <div className="p-6 bg-amber-50/50 rounded-2xl border border-amber-50">
+                                        <div className="px-6 sm:px-8 pb-6 sm:pb-8 text-gray-600 text-base sm:text-lg leading-relaxed font-medium">
+                                            <div className="p-4 sm:p-6 bg-amber-50/50 rounded-xl sm:rounded-2xl border border-amber-50">
                                                 {faq.a}
                                             </div>
                                         </div>
@@ -66,6 +66,7 @@ export default function FAQ() {
                         </div>
                     ))}
                 </div>
+
             </div>
         </section>
     );

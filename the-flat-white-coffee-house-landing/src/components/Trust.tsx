@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { cafeData } from "@/data";
 
 export default function Trust() {
@@ -20,35 +21,36 @@ export default function Trust() {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
             <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Community Trust</h2>
-                        <div className="flex flex-col items-center justify-center gap-4">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Community Trust</h2>
+                        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6">
                             <div className="flex items-center gap-2">
                                 <div className="flex text-amber-500">
                                     {[1, 2, 3, 4, 5].map(i => (
                                         <Star
                                             key={i}
-                                            size={28}
-                                            className={i <= rating ? "fill-current" : "fill-gray-300"}
+                                            size={24}
+                                            className={cn("sm:w-7 sm:h-7", i <= rating ? "fill-current" : "fill-gray-300")}
                                         />
                                     ))}
                                 </div>
                             </div>
-                            <div className="text-lg font-semibold text-gray-700">
-                                <span className="text-3xl text-gray-900 mr-2">{rating}</span>
+                            <div className="text-base sm:text-lg font-semibold text-gray-700 px-4">
+                                <span className="text-2xl sm:text-3xl text-gray-900 mr-2">{rating}</span>
                                 Rating based on {reviewCount} Google Reviews
                             </div>
-                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-4">
+                            <p className="text-gray-600 font-medium max-w-2xl mx-auto mt-2 sm:mt-4 text-sm sm:text-base px-4">
                                 {cafeData.social_proof.top_review_themes.join(", ")}
                             </p>
                         </div>
                     </motion.div>
                 </div>
+
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {reviews.map((review, idx) => (
@@ -60,7 +62,7 @@ export default function Trust() {
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
                             className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-amber-100/50 transition-all duration-500"
                         >
-                            <div className="mb-8 p-3 bg-amber-50 w-fit rounded-2xl group-hover:bg-amber-800 group-hover:text-white transition-colors duration-500">
+                            <div className="mb-8 p-3 bg-amber-800 text-white w-fit rounded-2xl shadow-lg shadow-amber-900/20">
                                 <Quote size={24} />
                             </div>
 

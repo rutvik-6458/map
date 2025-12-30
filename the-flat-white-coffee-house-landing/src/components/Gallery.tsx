@@ -23,20 +23,21 @@ export default function Gallery() {
     return (
         <section className="py-24 bg-white" id="gallery">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight">
                             Gallery
                         </h2>
-                        <p className="text-gray-600 text-lg font-medium max-w-2xl mx-auto">
+                        <p className="text-gray-600 text-base sm:text-lg font-medium max-w-2xl mx-auto px-4">
                             Take a look at our cozy ambience, specialty coffee, and welcoming space.
                         </p>
                     </motion.div>
                 </div>
+
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {galleryItems.map((item, idx) => (

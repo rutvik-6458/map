@@ -44,7 +44,7 @@ export default function Hero() {
                         <span>{rating}★ Rating • {reviewCount} Reviews</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-8xl font-black text-white leading-tight mb-8 tracking-tighter">
+                    <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white leading-[1.1] mb-6 sm:mb-8 tracking-tighter">
                         {headline.includes("–") ? (
                             <>
                                 {headline.split("–")[0].trim()}{" "}
@@ -55,13 +55,13 @@ export default function Hero() {
                         )}
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                    <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-medium px-4">
                         {subheadline}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
-                            <button className="bg-amber-800 hover:bg-amber-900 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-amber-800/30 flex items-center gap-3 transform hover:scale-105 active:scale-95 group">
+                    {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4">
+                        <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                            <button className="w-full sm:w-auto bg-amber-800 hover:bg-amber-900 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl transition-all shadow-2xl shadow-amber-800/30 flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 group">
                                 <MapPin size={24} />
                                 Get Directions
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -69,21 +69,23 @@ export default function Hero() {
                         </a>
 
                         {whatsappLink && (
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                                <button className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center gap-3 transform hover:scale-105 active:scale-95">
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                                <button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95">
                                     <MessageCircle size={24} />
                                     WhatsApp Us
                                 </button>
                             </a>
                         )}
 
-                        <a href="#location">
-                            <button className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 transform hover:scale-105 active:scale-95">
+                        <a href="#location" className="w-full sm:w-auto">
+                            <button className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl transition-all flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95">
                                 <Users size={24} />
                                 Visit Cafe
                             </button>
                         </a>
-                    </div>
+                    </div> */}
+
+
 
                     <div className="mt-20 flex flex-wrap justify-center gap-10 items-center opacity-80">
                         <div className="flex items-center gap-2 text-white/70">
