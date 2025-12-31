@@ -9,9 +9,9 @@ export default function Footer() {
     const hours = "Open daily, closes at 10:45 pm";
 
     return (
-        <footer className="bg-gray-950 text-white py-16">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <footer className="bg-gray-950 text-white py-12 sm:py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 mb-12">
                     <div>
                         <div className="flex items-center gap-2 mb-6">
                             <div className="w-10 h-10 bg-amber-600 rounded-xl flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <h3 className="font-bold text-lg mb-6 uppercase tracking-widest">Connect</h3>
                         <div className="space-y-4">
                             {whatsappNumber && (
@@ -94,7 +94,7 @@ export default function Footer() {
                                 <span>Get Directions</span>
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="pt-12 border-t border-gray-800">
