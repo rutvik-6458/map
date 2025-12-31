@@ -41,18 +41,18 @@ export default function Gallery() {
   const [imageLoaded, setImageLoaded] = useState<Record<number, boolean>>({});
 
   return (
-    <section id="gallery" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+    <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-3 sm:mb-4 px-4">
             Gallery
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             A glimpse into The Street Cafe by Ab's Kitchen experience
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {galleryImages.map((image, index) => {
             return (
               <div
@@ -83,9 +83,8 @@ export default function Gallery() {
                       alt={image.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className={`object-cover group-hover:scale-105 transition-all duration-300 ${
-                        imageLoaded[index] ? "opacity-100" : "opacity-0"
-                      }`}
+                      className={`object-cover group-hover:scale-105 transition-all duration-300 ${imageLoaded[index] ? "opacity-100" : "opacity-0"
+                        }`}
                       onLoad={() => {
                         setImageLoaded((prev) => ({ ...prev, [index]: true }));
                       }}

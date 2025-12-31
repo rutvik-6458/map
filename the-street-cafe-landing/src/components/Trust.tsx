@@ -17,51 +17,51 @@ export default function Trust() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-orange-50/30">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-orange-50/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  size={28}
+                  size={20}
                   className={
                     i < Math.floor(parseFloat(rating))
-                      ? "fill-orange-600 text-orange-600"
-                      : "fill-gray-200 text-gray-200"
+                      ? "fill-orange-600 text-orange-600 sm:w-7 sm:h-7"
+                      : "fill-gray-200 text-gray-200 sm:w-7 sm:h-7"
                   }
                 />
               ))}
             </div>
             <div className="text-left">
-              <div className="text-4xl font-black text-gray-900">
+              <div className="text-3xl sm:text-4xl font-black text-gray-900">
                 {rating}
               </div>
-              <div className="text-sm text-gray-600 font-medium">
+              <div className="text-xs sm:text-sm text-gray-600 font-medium">
                 {reviewCount} Reviews
               </div>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-3 sm:mb-4 px-4">
             Loved by Our Customers
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             See what our visitors say about their experience at The Street Cafe by Ab's Kitchen
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonialQuotes.map((quote, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+              className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
             >
               <Quote
-                size={32}
-                className="text-orange-600 mb-4 fill-orange-100"
+                size={28}
+                className="text-orange-600 mb-4 fill-orange-100 sm:w-8 sm:h-8"
               />
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
                 "{quote}"
               </p>
               <div className="flex items-center gap-1">
@@ -77,8 +77,8 @@ export default function Trust() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+        <div className="mt-8 sm:mt-12 text-center">
+          <div className="inline-flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-600 px-4">
             <span className="font-semibold">Top Review Themes:</span>
             {topReviewThemes.map((theme, index) => (
               <React.Fragment key={index}>

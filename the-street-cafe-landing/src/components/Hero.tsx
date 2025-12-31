@@ -35,26 +35,26 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40"></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20 sm:py-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 bg-orange-700/20 text-orange-100 px-4 py-2 rounded-full border border-orange-300/30 mb-8 font-bold text-sm tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 bg-orange-700/20 text-orange-100 px-3 sm:px-4 py-2 rounded-full border border-orange-300/30 mb-6 sm:mb-8 font-bold text-xs sm:text-sm tracking-widest uppercase">
             <Star size={14} className="fill-orange-200" />
             <span>4.7★ Rating • 15 Reviews</span>
           </div>
 
-          <h1 className="text-5xl md:text-8xl font-black text-white leading-tight mb-8 tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white leading-tight mb-6 sm:mb-8 tracking-tighter px-2">
             Pocket-Friendly Street Cafe in Vesu
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-medium px-4">
             Enjoy momos, fries and sandwiches without burning your wallet. Fast service, friendly staff and comforting street food.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             {whatsappNumber && (
               <a
                 href={`https://wa.me/${whatsappNumber}`}
@@ -78,24 +78,24 @@ export default function Hero() {
                 Get Directions
               </button>
             </a>
-          </div>
+          </div> */}
 
-          <div className="mt-20 flex flex-wrap justify-center gap-10 items-center opacity-80">
+          <div className="mt-12 sm:mt-20 flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10 items-center opacity-80 px-4">
             <div className="flex items-center gap-2 text-white/70">
               <div className="w-2 h-2 rounded-full bg-orange-300"></div>
-              <span className="font-bold text-sm uppercase tracking-widest">
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">
                 Very Affordable Prices
               </span>
             </div>
             <div className="flex items-center gap-2 text-white/70">
               <div className="w-2 h-2 rounded-full bg-orange-400"></div>
-              <span className="font-bold text-sm uppercase tracking-widest">
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">
                 Fast Service
               </span>
             </div>
             <div className="flex items-center gap-2 text-white/70">
               <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-              <span className="font-bold text-sm uppercase tracking-widest">
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-widest">
                 Warm & Friendly Staff
               </span>
             </div>
