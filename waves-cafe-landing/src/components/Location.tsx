@@ -12,7 +12,7 @@ export default function Location() {
     const googleMapsIframe = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
     return (
-        <section className="py-24 bg-white" id="location">
+        <section className="py-16 md:py-24 bg-white" id="location">
             <div className="max-w-7xl mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -20,7 +20,7 @@ export default function Location() {
                     viewport={{ once: true }}
                     className="bg-gray-950 rounded-[3.5rem] overflow-hidden flex flex-col lg:flex-row border border-gray-800"
                 >
-                    <div className="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center">
+                    <div className="lg:w-1/2 p-8 lg:p-20 text-white flex flex-col justify-center">
                         <div className="mb-12">
                             <div className="inline-flex items-center gap-2 bg-amber-600/20 text-amber-400 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-6">
                                 <Navigation size={14} />
@@ -82,7 +82,7 @@ export default function Location() {
                         </div>
                     </div>
 
-                    <div className="lg:w-1/2 h-[500px] lg:h-auto min-h-[600px] relative bg-gray-900 rounded-r-[3.5rem] overflow-hidden">
+                    <div className="lg:w-1/2 h-[500px] lg:h-auto min-h-[400px] lg:min-h-[600px] relative bg-gray-900 rounded-b-[3.5rem] lg:rounded-r-[3.5rem] lg:rounded-bl-none overflow-hidden">
                         <iframe
                             src={googleMapsIframe}
                             width="100%"

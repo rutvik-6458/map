@@ -53,7 +53,7 @@ export default function Features() {
     };
 
     return (
-        <section className="py-24 bg-white" id="features">
+        <section className="py-16 md:py-24 bg-white" id="features">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <motion.div

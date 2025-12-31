@@ -80,7 +80,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <h3 className="font-bold text-lg mb-6 uppercase tracking-widest">Connect</h3>
                         <div className="space-y-4">
                             <a
@@ -104,7 +104,7 @@ export default function Footer() {
                                 </a>
                             )}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="pt-12 border-t border-gray-800">

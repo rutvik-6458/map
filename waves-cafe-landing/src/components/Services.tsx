@@ -31,7 +31,7 @@ export default function Services() {
     });
 
     return (
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white" id="services">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white" id="services">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <motion.div
@@ -48,7 +48,7 @@ export default function Services() {
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {menuItems.map((item, idx) => {
                         const Icon = item.icon;
                         return (
@@ -60,7 +60,7 @@ export default function Services() {
                                 transition={{ delay: idx * 0.1, duration: 0.6 }}
                                 className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/40 flex flex-col group hover:shadow-2xl hover:shadow-amber-100/50 transition-all duration-500 hover:-translate-y-2"
                             >
-                                <div className="mb-6 p-4 bg-amber-50 w-fit rounded-2xl group-hover:bg-amber-600 group-hover:text-white transition-colors duration-500">
+                                <div className="mb-6 p-4 bg-amber-600 text-white w-fit rounded-2xl group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors duration-500">
                                     <Icon size={40} />
                                 </div>
                                 <div className="mb-4">

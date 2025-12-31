@@ -16,7 +16,7 @@ export default function Trust() {
     }));
 
     return (
-        <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-gray-50/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
             <div className="max-w-7xl mx-auto px-4">
@@ -50,7 +50,7 @@ export default function Trust() {
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {reviews.map((review, idx) => (
                         <motion.div
                             key={idx}
@@ -60,7 +60,7 @@ export default function Trust() {
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
                             className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col group hover:shadow-2xl hover:shadow-amber-100/50 transition-all duration-500"
                         >
-                            <div className="mb-8 p-3 bg-amber-50 w-fit rounded-2xl group-hover:bg-amber-600 group-hover:text-white transition-colors duration-500">
+                            <div className="mb-8 p-3 bg-amber-600 text-white w-fit rounded-2xl group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors duration-500">
                                 <Quote size={24} />
                             </div>
 

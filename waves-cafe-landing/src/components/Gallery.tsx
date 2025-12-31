@@ -44,7 +44,7 @@ export default function Gallery() {
     ];
 
     return (
-        <section className="py-24 bg-white" id="gallery">
+        <section className="py-16 md:py-24 bg-white" id="gallery">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <motion.div
@@ -61,7 +61,7 @@ export default function Gallery() {
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {galleryItems.map((item, idx) => (
                         <motion.div
                             key={item.id}
