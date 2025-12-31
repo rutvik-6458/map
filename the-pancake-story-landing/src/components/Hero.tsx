@@ -33,70 +33,70 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
             </div>
 
-            <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 text-center py-8 md:py-0">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="inline-flex items-center gap-2 bg-orange-700/20 text-orange-100 px-4 py-2 rounded-full border border-orange-500/30 mb-8 font-bold text-sm tracking-widest uppercase">
-                        <Star size={14} className="fill-orange-300" />
-                        <span>{rating}★ Rating • {reviewCount} Reviews</span>
+                    <div className="inline-flex items-center gap-2 bg-orange-700/20 text-orange-100 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-orange-500/30 mb-6 md:mb-8 font-bold text-xs md:text-sm tracking-widest uppercase">
+                        <Star size={12} className="fill-orange-300 md:w-[14px] md:h-[14px]" />
+                        <span className="text-xs md:text-sm">{rating}★ Rating • {reviewCount} Reviews</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-8xl font-black text-white leading-tight mb-8 tracking-tighter">
+                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-white leading-tight mb-6 md:mb-8 tracking-tighter">
                         {headline.includes("–") ? (
                             <>
-                                {headline.split("–")[0].trim()}{" "}
-                                <span className="text-orange-200">{headline.split("–")[1]?.trim()}</span>
+                                <span className="block md:inline">{headline.split("–")[0].trim()}</span>{" "}
+                                <span className="text-orange-200 block md:inline">{headline.split("–")[1]?.trim()}</span>
                             </>
                         ) : (
                             headline
                         )}
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                    <p className="text-base md:text-xl lg:text-2xl text-gray-100 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed font-medium px-2">
                         {subheadline}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
-                            <button className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-orange-600/30 flex items-center gap-3 transform hover:scale-105 active:scale-95 group">
+                    {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                        <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                            <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl transition-all shadow-2xl shadow-orange-600/30 flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 group w-full">
                                 <MapPin size={24} />
-                                Get Directions
+                                Directions
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </a>
 
                         {whatsappLink && (
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                                <button className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center gap-3 transform hover:scale-105 active:scale-95">
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                                <button className="bg-green-600 hover:bg-green-700 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl transition-all shadow-2xl shadow-green-600/30 flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 w-full">
                                     <MessageCircle size={24} />
-                                    WhatsApp Us
+                                    WhatsApp
                                 </button>
                             </a>
                         )}
 
-                        <a href="#location">
-                            <button className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 transform hover:scale-105 active:scale-95">
+                        <a href="#location" className="w-full sm:w-auto">
+                            <button className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl transition-all flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 w-full">
                                 <Users size={24} />
                                 Visit Cafe
                             </button>
                         </a>
-                    </div>
+                    </div> */}
 
-                    <div className="mt-20 flex flex-wrap justify-center gap-10 items-center opacity-80">
+                    <div className="mt-12 md:mt-20 flex flex-wrap justify-center gap-6 md:gap-10 items-center opacity-80 px-2">
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-orange-300"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Fluffy Pancakes</span>
+                            <span className="font-bold text-xs md:text-sm uppercase tracking-widest">Fluffy Pancakes</span>
                         </div>
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-pink-300"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Chocolate Dreams</span>
+                            <span className="font-bold text-xs md:text-sm uppercase tracking-widest">Chocolate Dreams</span>
                         </div>
                         <div className="flex items-center gap-2 text-white/70">
                             <div className="w-2 h-2 rounded-full bg-amber-300"></div>
-                            <span className="font-bold text-sm uppercase tracking-widest">Open Till Midnight</span>
+                            <span className="font-bold text-xs md:text-sm uppercase tracking-widest">Open Till Midnight</span>
                         </div>
                     </div>
                 </motion.div>

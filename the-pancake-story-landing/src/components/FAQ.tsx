@@ -14,7 +14,7 @@ export default function FAQ() {
         <section className="py-24 bg-gray-50/30" id="faq">
             <div className="max-w-4xl mx-auto px-4">
                 <div className="text-center mb-16">
-                    <div className="inline-flex p-3 bg-orange-100 text-orange-700 rounded-2xl mb-6">
+                    <div className="inline-flex p-3 bg-orange-600 text-white rounded-2xl mb-6 shadow-lg shadow-orange-200">
                         <HelpCircle size={28} />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Common Questions</h2>

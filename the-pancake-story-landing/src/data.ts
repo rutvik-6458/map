@@ -12,7 +12,8 @@ export const cafeData = {
   contact: {
     address: "Shop No. 18, Prime Shoppers, Opp. Safal Square, Udhana - Magdalla Rd, Vesu, Surat, Gujarat 395007",
     phone: "098252 23226",
-    google_maps_link: "",
+    google_maps_link: "https://maps.app.goo.gl/GzuvfenFFuRi52uE7",
+    google_maps_embed_link: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.1391534622285!2d72.7659536!3d21.146859799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0527881e9d579%3A0xf90f10a475c97794!2sThe%20Pancake%20Story!5e0!3m2!1sen!2sin!4v1767154168843!5m2!1sen!2sin",
     hours: "Open · Closes 12:00 am",
   },
   positioning: {

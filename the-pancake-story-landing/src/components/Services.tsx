@@ -63,7 +63,7 @@ export default function Services() {
                                 transition={{ delay: idx * 0.1, duration: 0.6 }}
                                 className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/40 flex flex-col group hover:shadow-2xl hover:shadow-orange-100/50 transition-all duration-500 hover:-translate-y-2"
                             >
-                                <div className="mb-6 p-4 bg-orange-50 w-fit rounded-2xl group-hover:bg-orange-600 group-hover:text-white transition-colors duration-500">
+                                <div className="mb-6 p-4 bg-orange-600 text-white w-fit rounded-2xl transition-all duration-500">
                                     <Icon size={40} />
                                 </div>
                                 <div className="mb-4">

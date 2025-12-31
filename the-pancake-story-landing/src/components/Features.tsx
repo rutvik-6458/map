@@ -38,10 +38,10 @@ export default function Features() {
     });
 
     const iconColors = {
-        blue: "bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
-        orange: "bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white",
-        green: "bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white",
-        pink: "bg-pink-100 text-pink-600 group-hover:bg-pink-600 group-hover:text-white",
+        blue: "bg-blue-600 text-white",
+        orange: "bg-orange-600 text-white",
+        green: "bg-green-600 text-white",
+        pink: "bg-pink-600 text-white",
     };
 
     return (
